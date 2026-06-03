@@ -1,0 +1,19 @@
+# ════════════════════════════════════════════════════════════════════
+#  SGQ Tech — Cloudflare Pages · regras de redirecionamento
+# ════════════════════════════════════════════════════════════════════
+#
+#  ▶ COMO REATIVAR A PÁGINA "EM BREVE" (em segundos):
+#
+#    1. Descomente a linha marcada abaixo (remova o "# " do início).
+#    2. Faça o deploy (push para a branch main).
+#    A home ( / ) passa a redirecionar para /em-breve novamente.
+#
+#    Para voltar à landing: comente a linha de novo e faça deploy.
+#    (A página de espera fica sempre acessível em /em-breve, mesmo
+#     com a landing no ar — útil para pré-visualizar.)
+#
+#  ↓↓↓ linha de reativação (descomente para ligar a página de espera) ↓↓↓
+# /    /em-breve    302
+#  ↑↑↑ ----------------------------------------------------------- ↑↑↑
+#
+# ════════════════════════════════════════════════════════════════════

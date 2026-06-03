@@ -3,557 +3,922 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SGQ Tech — Em breve</title>
-  <meta name="description" content="SGQ Tech — Sistema de Gestão da Qualidade. Estamos preparando algo incrível para você." />
+  <script>var d=document.documentElement;d.className+=' js';window.__af=setTimeout(function(){d.classList.add('anim-ready');},1500);</script>
+
+  <!-- ── SEO primário ──────────────────────────────────────────────── -->
+  <title>Software de Gestão da Qualidade para Indústria de Alimentos | SGQ Tech</title>
+  <meta name="description" content="SGQ Tech é o software de gestão da qualidade para indústria de alimentos: laudo técnico, rastreabilidade de lote, APPCC, ISO 22000, FSSC 22000 e gestão de não conformidade — já configurado para o seu produto. Agende uma demonstração." />
+  <link rel="canonical" href="https://sgqtech.com.br/" />
   <meta name="theme-color" content="#0F2628" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F2628'/%3E%3Ctext x='50' y='65' font-family='system-ui' font-weight='800' font-size='42' text-anchor='middle' fill='%2300A99D'%3Es%3C/text%3E%3Ccircle cx='75' cy='75' r='6' fill='%23E8845C'/%3E%3C/svg%3E" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="SGQ Tech" />
 
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <!-- ── Open Graph ────────────────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SGQ Tech" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Software de Gestão da Qualidade para Indústria de Alimentos | SGQ Tech" />
+  <meta property="og:description" content="Laudo técnico, rastreabilidade de lote, APPCC, ISO 22000 e FSSC 22000 num só lugar — já configurado para o seu produto. Saia do Excel antes da próxima fiscalização." />
+  <meta property="og:url" content="https://sgqtech.com.br/" />
+  <meta property="og:image" content="https://sgqtech.com.br/assets/img/og-cover.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SGQ Tech — software de gestão da qualidade para indústria de alimentos" />
 
-    :root {
-      --ink: #0F2628;
-      --teal: #00A99D;
-      --teal-dark: #00665E;
-      --coral: #E8845C;
-      --paper: #F8F8F8;
-      --muted: #8ABFC0;
-      --footer: #3A6062;
-    }
+  <!-- ── Twitter ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Software de Gestão da Qualidade para Indústria de Alimentos | SGQ Tech" />
+  <meta name="twitter:description" content="Laudo técnico, rastreabilidade de lote, APPCC, ISO 22000 e FSSC 22000 num só lugar — já configurado para o seu produto." />
+  <meta name="twitter:image" content="https://sgqtech.com.br/assets/img/og-cover.svg" />
 
-    html, body {
-      height: 100%;
-    }
+  <!-- ── Ícones ────────────────────────────────────────────────────── -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--ink);
-      color: var(--paper);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 20px;
-      position: relative;
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
+  <!-- ── Performance: preconnect + preload fonte LCP ───────────────── -->
+  <link rel="preconnect" href="https://sjfxtxwcirzppxgjiuya.supabase.co" />
+  <link rel="preconnect" href="https://esm.sh" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 
-    /* Pre-animation guard: hide everything until GSAP signals .ready */
-    body:not(.ready) .stage,
-    body:not(.ready) .footer {
-      visibility: hidden;
-    }
-
-    /* Decorative blurred particles */
-    .particle {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
-      will-change: transform;
-    }
-    .particle.p1 { top: -80px;  left: -80px;  width: 380px; height: 380px; background: var(--teal); }
-    .particle.p2 { bottom: -100px; right: -60px; width: 320px; height: 320px; background: var(--coral); opacity: 0.10; }
-    .particle.p3 { top: 40%; left: -160px; width: 280px; height: 280px; background: var(--teal); opacity: 0.10; }
-
-    /* Soft glow halo behind the stage */
-    .glow {
-      position: fixed;
-      top: -240px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 820px;
-      height: 820px;
-      background: radial-gradient(circle, rgba(0, 169, 157, 0.18) 0%, rgba(0, 169, 157, 0) 65%);
-      pointer-events: none;
-      z-index: 0;
-      will-change: opacity, transform;
-    }
-
-    .stage {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 720px;
-      text-align: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: clamp(56px, 11vw, 104px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      user-select: none;
-      display: inline-flex;
-      perspective: 800px;
-    }
-    .logo span {
-      display: inline-block;
-      will-change: transform, opacity;
-    }
-    .logo .sgq { color: var(--teal); }
-    .logo .tech { color: var(--paper); }
-    .logo .dot {
-      color: var(--coral);
-      transform-origin: center;
-    }
-
-    .subtitle {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: clamp(11px, 1.6vw, 13px);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      font-weight: 600;
-      will-change: transform, opacity;
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background-color: var(--teal);
-      margin: 28px auto 24px;
-      border-radius: 2px;
-      transform-origin: center;
-      will-change: transform;
-    }
-
-    .headline {
-      font-size: clamp(22px, 3.6vw, 32px);
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--paper);
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .headline .word {
-      display: inline-block;
-      will-change: transform, opacity;
-    }
-
-    .description {
-      color: rgba(248, 248, 248, 0.7);
-      font-size: clamp(14px, 1.7vw, 16px);
-      line-height: 1.6;
-      max-width: 560px;
-      margin: 0 auto 32px;
-      will-change: transform, opacity;
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 36px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 169, 157, 0.35);
-      background-color: rgba(0, 169, 157, 0.06);
-      color: var(--paper);
-      font-size: 13px;
-      font-weight: 500;
-      transition: border-color 0.25s ease, background-color 0.25s ease;
-      will-change: transform, opacity;
-    }
-    .badge .check {
-      color: var(--teal);
-      font-weight: 700;
-    }
-
-    .cta-label {
-      color: rgba(248, 248, 248, 0.85);
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      will-change: transform, opacity;
-    }
-
-    .form {
-      display: flex;
-      gap: 8px;
-      max-width: 480px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
-      will-change: transform, opacity;
-    }
-
-    .input {
-      flex: 1 1 240px;
-      min-width: 0;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(248, 248, 248, 0.16);
-      background-color: rgba(248, 248, 248, 0.05);
-      color: var(--paper);
-      font-size: 15px;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-    }
-    .input::placeholder {
-      color: rgba(248, 248, 248, 0.35);
-    }
-    .input:focus {
-      border-color: var(--teal);
-      background-color: rgba(248, 248, 248, 0.08);
-      box-shadow: 0 0 0 4px rgba(0, 169, 157, 0.18);
-    }
-
-    .button {
-      position: relative;
-      height: 48px;
-      padding: 0 22px;
-      border-radius: 10px;
-      border: none;
-      background-color: var(--teal);
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
-      white-space: nowrap;
-      will-change: transform;
-    }
-    .button:hover {
-      background-color: var(--teal-dark);
-      color: var(--paper);
-      box-shadow: 0 12px 32px -8px rgba(0, 169, 157, 0.55);
-    }
-    .button:active {
-      transition: transform 0.08s ease;
-      transform: scale(0.97);
-    }
-
-    .success {
-      display: none;
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px 20px;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 169, 157, 0.5);
-      background-color: rgba(0, 169, 157, 0.1);
-      color: var(--teal);
-      font-size: 15px;
-      font-weight: 600;
-    }
-    .success.show {
-      display: block;
-    }
-
-    .footer {
-      position: relative;
-      z-index: 1;
-      margin-top: 48px;
-      color: var(--footer);
-      font-size: 13px;
-      text-align: center;
-      line-height: 1.6;
-    }
-    .footer a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.25s ease;
-    }
-    .footer a:hover {
-      color: var(--teal);
-    }
-
-    @media (max-width: 480px) {
-      .badge { font-size: 12px; padding: 7px 12px; }
-      .form { gap: 10px; }
-      .button { width: 100%; }
-    }
-
-    /* Accessibility: respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .particle, .glow { animation: none !important; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+  <!-- ── Dados estruturados ────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sgqtech.com.br/#organization",
+        "name": "SGQ Tech",
+        "url": "https://sgqtech.com.br/",
+        "logo": "https://sgqtech.com.br/favicon.svg",
+        "description": "Software de gestão da qualidade para a indústria de alimentos: laudo técnico, rastreabilidade de lote, APPCC, ISO 22000, FSSC 22000 e não conformidade.",
+        "email": "comercial@sgqtech.com.br",
+        "sameAs": [
+          "https://instagram.com/sgqtech",
+          "https://www.linkedin.com/company/sgq-tech/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "comercial@sgqtech.com.br",
+          "telephone": "+55-84-98850-4395",
+          "availableLanguage": ["Portuguese"]
+        },
+        "areaServed": "BR"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://sgqtech.com.br/#software",
+        "name": "SGQ Tech",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Quality Management System (QMS)",
+        "operatingSystem": "Web",
+        "url": "https://sgqtech.com.br/",
+        "publisher": { "@id": "https://sgqtech.com.br/#organization" },
+        "description": "Sistema de gestão da qualidade (SGQ/QMS) para a indústria de alimentos. Emissão de laudo técnico, rastreabilidade de lote, checklists de BPF/APPCC, gestão de não conformidade com causa-raiz e plano de ação, calibração e prontidão para auditoria.",
+        "inLanguage": "pt-BR",
+        "featureList": [
+          "Laudo técnico com aprovação automática",
+          "Rastreabilidade de lote",
+          "Checklists de BPF e APPCC",
+          "Gestão de não conformidade (causa-raiz e plano de ação)",
+          "Controle de calibração com alerta",
+          "Indicadores de qualidade em tempo real",
+          "Prontidão para ISO 22000, FSSC 22000 e IFS"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": "https://sgqtech.com.br/#agendar"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://sgqtech.com.br/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é um software de gestão da qualidade (SGQ) para indústria de alimentos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "É um sistema que centraliza tudo o que sua indústria de alimentos precisa para garantir a qualidade e a conformidade: emissão de laudo técnico, rastreabilidade de lote, checklists de BPF e APPCC, gestão de não conformidade, calibração e documentos. A SGQ Tech substitui as planilhas dispersas por um único sistema, já configurado para o seu produto." }
+          },
+          {
+            "@type": "Question",
+            "name": "A SGQ Tech ajuda na certificação APPCC, ISO 22000, FSSC 22000 e IFS?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. A plataforma organiza POPs, checklists com foto, registros de não conformidade, calibração e evidências de auditoria no formato que essas normas exigem — incluindo APPCC/HACCP, ISO 22000, FSSC 22000 v6 e IFS Food/BRCGS, além de BPF, RDC da ANVISA e exigências do MAPA." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona a rastreabilidade de lote na SGQ Tech?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Cada lote é rastreado do recebimento do insumo até a entrega ao cliente. Em caso de recall ou reclamação, você localiza em minutos toda a cadeia — matéria-prima, produção, laudos e destino — em vez de horas folheando papel." }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso parar de usar Excel? Como é a migração?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim — o Excel é grátis até a autuação. A implantação é consultiva: configuramos o sistema com o seu produto, importamos o essencial e treinamos a equipe. O técnico passa a só digitar o valor; o sistema aprova (verde) ou reprova (vermelho) automaticamente." }
+          },
+          {
+            "@type": "Question",
+            "name": "Para quais segmentos da indústria de alimentos a SGQ Tech serve?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Para indústrias de alimentos reguladas em geral: sal iodado, temperos e condimentos, sucos e polpas, castanha, mel, água mineral, pescado e camarão, laticínios e conservas, entre outros. Onde há obrigação de laudo, rastreabilidade e auditoria, a SGQ Tech se aplica." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funcionam os laudos técnicos no sistema?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O laudo chega pronto: o template do seu produto já vem configurado com os parâmetros e limites (por exemplo, um laudo de sal refinado iodado com 23 parâmetros). O técnico digita o valor, o sistema aprova ou reprova automaticamente, numera o documento e gera o PDF no padrão visual da sua empresa." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto custa a SGQ Tech?",
+            "acceptedAnswer": { "@type": "Answer", "text": "São quatro planos por porte de empresa (Base, Profissional, Plus e Enterprise), com preço fixo por faixa — nunca por usuário ou por módulo. O plano ideal é definido em uma demonstração rápida, de acordo com o tamanho e a necessidade da sua operação." }
+          }
+        ]
       }
-    }
-  </style>
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-  <div class="particle p1" aria-hidden="true"></div>
-  <div class="particle p2" aria-hidden="true"></div>
-  <div class="particle p3" aria-hidden="true"></div>
 
-  <main class="stage" role="main">
-    <h1 class="logo" aria-label="SGQ Tech">
-      <span class="sgq">sgq</span><span class="tech">tech</span><span class="dot">.</span>
-    </h1>
+<!-- ════ Sprite de ícones (line icons, reusáveis via <use>) ════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></symbol>
+      <symbol id="i-radar" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 12 19 5"/><path d="M12 12a3 3 0 1 0 3 3"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 14h9"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H14a3.5 3.5 0 0 0 0-7H10a3.5 3.5 0 0 1 0-7h5.5"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.6 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14 8 9"/><path d="M3.5 18a9 9 0 1 1 17 0"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6.2 6.2a2 2 0 1 0 2.8 2.8l6.2-6.2a4 4 0 0 0 5.2-5.2l-2.6 2.6-2-2 2.6-2.6Z"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+      <symbol id="i-checklist" viewBox="0 0 24 24"><path d="M9 5h10M9 12h10M9 19h10"/><path d="m3 5 1.5 1.5L7 4M3 12l1.5 1.5L7 11M3 19l1.5 1.5L7 18"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9-5-9 5v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.4 12h11l1.6-8H6"/></symbol>
+      <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V9l6 4V9l6 4V5h3v16H3Z"/><path d="M7 17h.01M12 17h.01M17 17h.01"/></symbol>
+      <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M3 17a9 9 0 0 1 18 0"/><path d="M2 17h20v3H2zM10 6a2 2 0 0 1 4 0v3M9 9V7M15 9V7"/></symbol>
+      <symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 19a5 5 0 0 1 10 0v1H7v-1Z"/><path d="M12 4V2M5 9 3.5 7.5M19 9l1.5-1.5M9 9a3 3 0 0 1 6 0"/></symbol>
+      <symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 10h18M9 4v16"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></symbol>
+      <symbol id="i-user-x" viewBox="0 0 24 24"><path d="M14 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="8" cy="7" r="4"/><path d="m17 8 4 4M21 8l-4 4"/></symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L3 21"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 21h14M6 18h12v-1a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2.5l.5-2.5a3 3 0 1 0-3 0l.5 2.5A2 2 0 0 1 8 15H6a2 2 0 0 0-2 2v1Z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+    </g>
+  </defs>
+</svg>
 
-    <p class="subtitle">Sistema de Gestão da Qualidade</p>
+<!-- filled / brand icons (não usam o grupo stroke acima) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M4 4.5h16a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1Z" rx="5"/><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.46-2.2 2.96V21H9V9Z"/></symbol>
+</svg>
 
-    <div class="divider" aria-hidden="true"></div>
+<!-- ════════════════════════ HEADER ════════════════════════ -->
+<header class="site-header" id="top">
+  <div class="container">
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#top" class="wordmark" aria-label="SGQ Tech — início">
+        <span class="wordmark__sgq">sgq</span><span class="wordmark__tech">tech</span><span class="wordmark__dot">.</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#virada">Como funciona</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#calculadora" class="nav__only-mobile">Calcular meu risco</a>
+        <a href="#agendar" class="btn btn--primary nav__links-cta nav__only-mobile">Agendar demonstração</a>
+      </div>
+      <div class="nav__right">
+        <a href="#calculadora" class="btn btn--ghost">Calcular meu risco</a>
+        <a href="#agendar" class="btn btn--primary">Agendar demonstração</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    <h2 class="headline">Estamos preparando algo incrível para você</h2>
+<main>
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <span class="eyebrow reveal">Software de gestão da qualidade · Indústria de alimentos</span>
+        <h1 class="reveal" data-delay="1">Tire a qualidade do papel. <span class="hl">Antes da próxima fiscalização.</span></h1>
+        <p class="lead reveal" data-delay="2">A <strong>SGQ Tech</strong> é o software de gestão da qualidade feito para a indústria de alimentos: laudo técnico, rastreabilidade de lote, APPCC, não conformidade e auditoria — tudo num só lugar, já configurado para o seu produto.</p>
+        <div class="btn-row hero__cta reveal" data-delay="3">
+          <a href="#agendar" class="btn btn--primary btn--lg">Agendar demonstração <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
+          <a href="#calculadora" class="btn btn--ghost btn--lg">Calcular meu risco invisível</a>
+        </div>
+        <div class="hero__trust reveal" data-delay="3">
+          <span class="hero__trust-label">Pronto para as normas do setor</span>
+          <span class="chip"><svg><use href="#i-check"/></svg> APPCC / HACCP</span>
+          <span class="chip"><svg><use href="#i-check"/></svg> ISO 22000</span>
+          <span class="chip"><svg><use href="#i-check"/></svg> FSSC 22000 v6</span>
+          <span class="chip"><svg><use href="#i-check"/></svg> IFS Food</span>
+          <span class="chip"><svg><use href="#i-check"/></svg> ANVISA / MAPA</span>
+        </div>
+      </div>
 
-    <p class="description">
-      Uma plataforma completa para empresas industriais centralizarem qualidade, laudos técnicos,
-      rastreabilidade, manutenção e gestão documental em um único lugar. Conformidade na rotina,
-      sem planilhas e sem retrabalho.
-    </p>
+      <!-- Mockup principal do hero: print real do painel da qualidade -->
+      <div class="hero__visual">
+        <figure class="shot" id="heroShot" style="max-width:560px;margin-inline:auto">
+          <img src="/assets/img/dash-hero.webp" width="1280" height="1231" alt="Painel da qualidade do SGQ Tech com indicadores, não conformidades que precisam de atenção e laudos do período" fetchpriority="high" decoding="async" />
+          <figcaption class="shot__badge"><span class="dot"></span> Painel em tempo real</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="badges" role="list">
-      <span class="badge" role="listitem"><span class="check">✓</span> Laudos Técnicos</span>
-      <span class="badge" role="listitem"><span class="check">✓</span> Rastreabilidade</span>
-      <span class="badge" role="listitem"><span class="check">✓</span> Não Conformidades</span>
-      <span class="badge" role="listitem"><span class="check">✓</span> Manutenção</span>
-      <span class="badge" role="listitem"><span class="check">✓</span> Checklists Digitais</span>
-      <span class="badge" role="listitem"><span class="check">✓</span> Gestão Documental</span>
+<!-- ════════════════════════ PROBLEMA ════════════════════════ -->
+<section class="section section--dark has-bg" id="problema">
+  <div class="section-bg" aria-hidden="true"><img src="/assets/img/cena-mesa.webp" width="1280" height="714" alt="" loading="lazy" decoding="async" /></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">A qualidade invisível</span>
+      <h2>O risco que não aparece — até aparecer numa auditoria</h2>
+      <p class="lead">Sua operação pode estar fabricando bem e, mesmo assim, sem prova disso. Quando a qualidade vive em planilhas soltas, no Word de alguém e na cabeça do responsável técnico, o risco fica invisível — até o dia da fiscalização, do recall ou da exigência do cliente.</p>
+    </div>
+    <div class="grid cols-4">
+      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-table"/></svg></div><h3>Planilha que ninguém audita</h3><p>Uma fórmula errada num laudo já é não conformidade — e ninguém percebe até alguém de fora olhar.</p></div>
+      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-rotate"/></svg></div><h3>Recall que leva horas</h3><p>Rastrear um lote do insumo ao cliente vira uma caça ao tesouro em pastas, cadernos e e-mails.</p></div>
+      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-user-x"/></svg></div><h3>Conhecimento que vai embora</h3><p>Quando o RT sai, sai junto o que só estava na cabeça dele. A operação fica refém de uma pessoa.</p></div>
+      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-alert"/></svg></div><h3>Evidência que não existe</h3><p>O processo está certo, mas sem registro rastreável não há como provar para a ANVISA, o MAPA ou o cliente.</p></div>
+    </div>
+    <p class="lead reveal mt-l" style="font-weight:600;color:var(--paper)">O Excel é grátis — até a autuação.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════ VIRADA / 4 PILARES ════════════════════════ -->
+<section class="section section--white" id="virada">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">A virada</span>
+      <h2>De planilha dispersa a um sistema que antecipa</h2>
+      <p class="lead">Quatro movimentos para transformar a sua gestão de qualidade SGQ de reativa em previsível.</p>
+    </div>
+    <div class="grid cols-4">
+      <div class="card pillar reveal"><div class="icon-badge"><svg><use href="#i-layers"/></svg></div><div class="pillar__num">01</div><h3>Centralize</h3><p>Laudos, documentos, checklists, não conformidades e indicadores num único sistema — não em dez planilhas.</p></div>
+      <div class="card pillar reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-chart"/></svg></div><div class="pillar__num">02</div><h3>Visualize</h3><p>Indicadores de qualidade em tempo real e health score da operação. O que está fora do controle aparece na hora.</p></div>
+      <div class="card pillar reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-radar"/></svg></div><div class="pillar__num">03</div><h3>Antecipe</h3><p>Alertas de calibração vencendo, não conformidade com causa-raiz e plano de ação. Você age antes do problema.</p></div>
+      <div class="card pillar reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-target"/></svg></div><div class="pillar__num">04</div><h3>Decida</h3><p>Dados confiáveis e evidência pronta para auditoria. Decisões com base no que aconteceu de verdade.</p></div>
+    </div>
+    <figure class="shot reveal-img" style="max-width:1040px;margin:clamp(44px,5vw,68px) auto 0">
+      <img src="/assets/img/indicadores.webp" width="1280" height="1025" alt="Tela de indicadores da qualidade do SGQ Tech com KPIs, gráficos de não conformidades por origem e metas de qualidade" loading="lazy" decoding="async" />
+    </figure>
+  </div>
+</section>
+
+<!-- ════════════════════════ TABELA HOJE vs SGQ ════════════════════════ -->
+<section class="section section--dark" id="comparacao">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Comparação direta</span>
+      <h2>O que muda no dia a dia da sua gestão de qualidade</h2>
+    </div>
+    <div class="compare">
+      <div class="compare__head">
+        <div>Na sua operação</div>
+        <div class="col-today">Hoje (papel / Excel)</div>
+        <div class="col-sgq"><svg><use href="#i-check"/></svg> Com a SGQ Tech</div>
+      </div>
+      <div class="compare__row"><div class="feat">Emissão de laudo técnico</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Refeito à mão, sujeito a erro de fórmula</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Template pronto, aprovação automática</div></div>
+      <div class="compare__row"><div class="feat">Rastreabilidade de lote</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Horas folheando pastas e cadernos</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Recall completo em minutos</div></div>
+      <div class="compare__row"><div class="feat">Checklists de BPF / APPCC</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Papel que se perde, sem foto</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Digital, com foto e offline</div></div>
+      <div class="compare__row"><div class="feat">Não conformidade</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Anotada e esquecida</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Causa-raiz + plano de ação com prazo</div></div>
+      <div class="compare__row"><div class="feat">Calibração de instrumentos</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Vence sem ninguém ver</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Alerta automático de vencimento</div></div>
+      <div class="compare__row"><div class="feat">Prontidão para auditoria</div><div class="col-today"><svg width="17" height="17"><use href="#i-x"/></svg> Corre-corre de última hora</div><div class="col-sgq"><svg><use href="#i-check"/></svg> Evidência organizada o tempo todo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ RASTREABILIDADE ════════════════════════ -->
+<section class="section section--tint" id="rastreabilidade">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Rastreabilidade de lote</span>
+      <h2>Do insumo ao cliente, em minutos — não em horas</h2>
+      <p class="lead">Cada lote é rastreado de ponta a ponta. Se um cliente reclamar ou a fiscalização pedir, você reconstrói toda a cadeia — matéria-prima, produção, laudos e destino — sem folhear um único papel.</p>
     </div>
 
-    <p class="cta-label">Seja avisado quando lançarmos:</p>
+    <div class="reveal trace-scroll">
+      <!-- Diagrama de rastreabilidade (cat. C) -->
+      <svg class="trace__diagram" viewBox="0 0 1100 210" role="img" aria-label="Fluxo de rastreabilidade: matéria-prima, recebimento, lote de produção, produto com laudo e cliente — rastreado em segundos, com recall no sentido inverso" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#00665E"/></marker>
+          <marker id="ah-coral" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8845C"/></marker>
+        </defs>
+        <!-- linha de fluxo (desenha via JS; sem JS fica sólida) -->
+        <line id="traceLine" x1="120" y1="80" x2="980" y2="80" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
+        <!-- ponto viajante (JS controla; oculto por padrão) -->
+        <g class="trace-pulse-wrap"><circle cx="120" cy="80" r="11" fill="#E8845C" opacity="0.25"/><circle cx="120" cy="80" r="5" fill="#E8845C"/></g>
+        <!-- linha de recall (inversa) -->
+        <line class="trace-line-back" x1="980" y1="128" x2="120" y2="128" stroke="#E8845C" stroke-width="1.5" stroke-dasharray="3 5" marker-end="url(#ah-coral)" opacity="0.8"/>
+        <text x="550" y="150" text-anchor="middle" font-family="'Geist Mono',monospace" font-size="12" fill="#E8845C">◄ recall &amp; investigação no sentido inverso</text>
 
-    <form class="form" id="notify-form" novalidate>
-      <input
-        type="email"
-        class="input"
-        id="email"
-        placeholder="seu@email.com.br"
-        autocomplete="email"
-        required
-        aria-label="Seu e-mail"
-      />
-      <button type="submit" class="button" id="notify-btn">
-        <span class="button-label">Quero ser avisado</span>
-      </button>
-    </form>
+        <g font-family="'Geist',sans-serif">
+          <!-- nós -->
+          <g class="trace-node"><circle cx="120" cy="80" r="30" fill="#0F2628"/><use href="#i-box" x="104" y="64" width="32" height="32" color="#00A99D"/><text x="120" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Matéria-prima</text></g>
+          <g class="trace-node"><circle cx="335" cy="80" r="30" fill="#0F2628"/><use href="#i-checklist" x="319" y="64" width="32" height="32" color="#00A99D"/><text x="335" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Recebimento</text></g>
+          <g class="trace-node"><circle cx="550" cy="80" r="30" fill="#00665E"/><use href="#i-factory" x="534" y="64" width="32" height="32" color="#F8F8F8"/><text x="550" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Lote de produção</text></g>
+          <g class="trace-node"><circle cx="765" cy="80" r="30" fill="#0F2628"/><use href="#i-flask" x="749" y="64" width="32" height="32" color="#00A99D"/><text x="765" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Produto + laudo</text></g>
+          <g class="trace-node"><circle cx="980" cy="80" r="30" fill="#0F2628"/><use href="#i-users" x="964" y="64" width="32" height="32" color="#00A99D"/><text x="980" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Cliente</text></g>
+        </g>
 
-    <div class="success" id="success" role="status" aria-live="polite">
-      ✓ Pronto! Vamos avisar você assim que lançarmos.
+        <!-- selo final (JS revela no fim; sem JS fica visível) -->
+        <g class="trace-seal" transform="translate(421,174)">
+          <rect x="0" y="0" width="258" height="30" rx="15" fill="#00665E"/>
+          <circle cx="20" cy="15" r="8" fill="#00A99D"/>
+          <path d="M16 15 l2.6 2.6 l5.4 -5.4" fill="none" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="38" y="20" font-family="'Geist',sans-serif" font-size="14" font-weight="700" fill="#F8F8F8">Rastreado em segundos</text>
+        </g>
+      </svg>
     </div>
-  </main>
 
-  <footer class="footer">
-    Lançamento previsto para junho de 2026 ·
-    <a href="https://sgqtech.com.br">sgqtech.com.br</a>
-  </footer>
+    <div class="media-2col" style="margin-top:clamp(32px,4vw,52px)">
+      <div class="trace-stats reveal">
+        <div><div class="stat__num" data-count="31">31</div><div class="stat__label">campos rastreados por lote</div></div>
+        <div><div class="stat__num">minutos</div><div class="stat__label">para um recall completo</div></div>
+        <div><div class="stat__num">100%</div><div class="stat__label">da cadeia auditável</div></div>
+      </div>
+      <figure class="shot reveal-img">
+        <img src="/assets/img/rastreabilidade.webp" width="1280" height="1267" alt="Tela de exercícios de rastreabilidade do SGQ Tech mostrando o detalhe de um lote com recall preventivo aberto e desvio tratado via não conformidade" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script>
-    (function () {
-      var hasGsap = typeof window.gsap !== "undefined";
-      var prefersReduced = window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+<!-- ════════════════════════ NC & ANTECIPAÇÃO ════════════════════════ -->
+<section class="section section--white" id="nao-conformidade">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Não conformidade &amp; antecipação</span>
+      <h2>Gestão de não conformidade com causa-raiz e plano de ação</h2>
+      <p class="lead">Registrar o problema é o mínimo. A SGQ Tech leva você até a causa e garante que a ação aconteça — com responsável, prazo e status.</p>
+    </div>
 
-      // Split headline into words for word-by-word reveal
-      var headline = document.querySelector(".headline");
-      if (headline) {
-        var words = headline.textContent.trim().split(/\s+/);
-        headline.innerHTML = words
-          .map(function (w) { return '<span class="word">' + w + '</span>'; })
-          .join(" ");
-      }
+    <!-- Produto real (lista de NC) + mockup animado do ciclo, lado a lado -->
+    <div class="media-2col" style="margin-bottom:clamp(36px,4vw,52px)">
+      <div class="nc-mock reveal" id="ncMock" role="img" aria-label="Ciclo de uma não conformidade no sistema: de Aberta para Em ação e então Resolvida, com causa-raiz e plano de ação">
+        <div class="nc-mock__head">
+          <span class="nc-mock__tag">NC-2026-014</span>
+          <span class="nc-mock__title">Desvio de umidade no lote L-2406</span>
+        </div>
+        <div class="nc-mock__steps">
+          <div class="nc-step is-active" data-i="1"><span class="nc-step__dot"></span> Aberta</div>
+          <div class="nc-step" data-i="2"><span class="nc-step__dot"></span> Em ação</div>
+          <div class="nc-step" data-i="3"><span class="nc-step__dot"></span> Resolvida</div>
+        </div>
+        <div class="nc-mock__bar"><div class="nc-mock__fill"></div></div>
+        <div class="nc-mock__foot">
+          <span class="nc-mock__meta">Causa-raiz: 5 Porquês · Plano de ação com prazo</span>
+          <span class="nc-mock__status" id="ncStatus">Aberta</span>
+        </div>
+      </div>
+      <figure class="shot reveal-img">
+        <img src="/assets/img/nc-lista.webp" width="1120" height="1300" alt="Lista de não conformidades no SGQ Tech com código, tipo, classificação, status e responsável de cada NC" loading="lazy" decoding="async" />
+      </figure>
+    </div>
 
-      var form = document.getElementById("notify-form");
-      var success = document.getElementById("success");
-      var email = document.getElementById("email");
-      var button = document.getElementById("notify-btn");
-      var buttonLabel = button.querySelector(".button-label");
+    <div class="grid cols-4">
+      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-radar"/></svg></div><h3>Causa-raiz</h3><p>5 Porquês e Ishikawa para chegar na origem, não só no sintoma.</p></div>
+      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-task"/></svg></div><h3>Plano de ação</h3><p>Cada ação com responsável, prazo e acompanhamento até concluir.</p></div>
+      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-clock"/></svg></div><h3>Calibração com alerta</h3><p>Instrumentos com data de vencimento e aviso automático antes de vencer.</p></div>
+      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-shield"/></svg></div><h3>Auditoria com evidência</h3><p>Foto, assinatura e histórico anexados — a prova fica pronta o ano todo.</p></div>
+    </div>
+  </div>
+</section>
 
-      function isValidEmail(value) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      }
+<!-- ════════════════════════ CERTIFICAÇÕES ════════════════════════ -->
+<section class="section section--tint" id="certificacoes">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Conformidade normativa</span>
+      <h2>Pronto para APPCC, ISO 22000, FSSC 22000 e IFS</h2>
+      <p class="lead">A SGQ Tech organiza POPs, registros e evidências no formato que as principais normas da indústria de alimentos exigem.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="cert reveal"><div class="cert__mark"><svg><use href="#i-shield"/></svg></div><div><div class="cert__name">APPCC / HACCP</div><div class="cert__desc">Pontos críticos e monitoramento</div></div></div>
+      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">ISO 22000</div><div class="cert__desc">Gestão de segurança de alimentos</div></div></div>
+      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">FSSC 22000 v6</div><div class="cert__desc">Esquema reconhecido pela GFSI</div></div></div>
+      <div class="cert reveal"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">IFS Food / BRCGS</div><div class="cert__desc">Exigência de grandes varejos</div></div></div>
+      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-doc"/></svg></div><div><div class="cert__name">BPF / RDC ANVISA</div><div class="cert__desc">Boas práticas de fabricação</div></div></div>
+      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-check"/></svg></div><div><div class="cert__name">MAPA / Pró-Iodo</div><div class="cert__desc">Exigências setoriais específicas</div></div></div>
+    </div>
+  </div>
+</section>
 
-      function handleSubmit() {
-        var value = email.value.trim();
-        if (!isValidEmail(value)) {
-          email.focus();
-          if (hasGsap && !prefersReduced) {
-            gsap.fromTo(email,
-              { x: -8 },
-              { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)",
-                onStart: function () { email.style.borderColor = "#E8845C"; }
-              }
-            );
-          } else {
-            email.style.borderColor = "#E8845C";
-          }
-          return;
-        }
-        if (hasGsap && !prefersReduced) {
-          gsap.to(form, { opacity: 0, y: -8, duration: 0.3, ease: "power2.in",
-            onComplete: function () {
-              form.style.display = "none";
-              success.classList.add("show");
-              gsap.fromTo(success,
-                { opacity: 0, y: 8 },
-                { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
-              );
-            }
-          });
-        } else {
-          form.style.display = "none";
-          success.classList.add("show");
-        }
-      }
+<!-- ════════════════════════ LAUDOS ════════════════════════ -->
+<section class="section section--dark" id="laudos">
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <span class="eyebrow reveal">Laudo técnico</span>
+        <h2 class="reveal" data-delay="1">O laudo que chega pronto para o seu produto</h2>
+        <p class="lead reveal" data-delay="2">Nada de montar planilha do zero. O template do seu produto já vem configurado com os parâmetros e os limites. O técnico só digita o valor.</p>
+        <ul class="persona ul reveal" data-delay="2" style="margin-top:8px">
+          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Verde aprova, vermelho reprova — sem cálculo manual</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Numeração sequencial por cliente e ano (ex.: 0001-25/2026)</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> PDF no padrão visual da <strong style="color:var(--paper)">sua</strong> empresa, não do sistema</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Histórico completo e pronto para auditoria</li>
+        </ul>
+        <div class="btn-row mt-m reveal" data-delay="3">
+          <a href="#agendar" class="btn btn--primary">Ver um laudo na demonstração <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+      <div class="hero__visual reveal" data-delay="2">
+        <figure class="shot" style="max-width:430px;margin-inline:auto">
+          <img src="/assets/img/laudo.webp" width="1000" height="1415" alt="Laudo técnico em PDF gerado pelo SGQ Tech: certificado de qualidade de sal grosso com parâmetros químicos, físicos, metais pesados e microbiológicos, todos aprovados" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        handleSubmit();
-      });
+<!-- ════════════════════════ 7 GATILHOS ════════════════════════ -->
+<section class="section section--white" id="gatilhos">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">7 sinais</span>
+      <h2>7 sinais de que sua indústria precisa de um SGQ agora</h2>
+      <p class="lead">Se você se reconhece em pelo menos um destes, o risco já está rodando na sua operação.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-alert"/></svg></div><div><h3>1. Veio uma fiscalização — e a papelada está espalhada</h3><p>ANVISA ou MAPA bateram à porta e reunir as evidências virou correria.</p></div></div>
+      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-doc"/></svg></div><div><h3>2. Um cliente passou a exigir laudo por lote</h3><p>O comprador agora pede laudo técnico a cada entrega — e o seu é feito à mão.</p></div></div>
+      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-award"/></svg></div><div><h3>3. Você vai iniciar FSSC 22000 ou ISO 22000</h3><p>A certificação exige registros e rastreabilidade que a planilha não sustenta.</p></div></div>
+      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-user-x"/></svg></div><div><h3>4. Trocou o responsável técnico</h3><p>O conhecimento foi embora junto e ninguém mais sabe onde está cada coisa.</p></div></div>
+      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-globe"/></svg></div><div><h3>5. Vai começar a exportar</h3><p>O mercado externo exige rastreabilidade auditável de ponta a ponta.</p></div></div>
+      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-rotate"/></svg></div><div><h3>6. Teve (ou quase teve) um recall</h3><p>Rastrear o lote levou horas — e podia ter levado minutos.</p></div></div>
+      <div class="trigger reveal" style="grid-column:1/-1;max-width:none"><div class="trigger__icon"><svg><use href="#i-table"/></svg></div><div><h3>7. A qualidade inteira depende de uma planilha de Excel</h3><p>Uma fórmula errada, um arquivo sobrescrito, um backup que não existe — e o risco vira autuação.</p></div></div>
+    </div>
+    <div class="center mt-l reveal">
+      <a href="#calculadora" class="btn btn--ghost btn--lg">Quantos sinais você tem? Calcule seu risco <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
 
-      email.addEventListener("input", function () {
-        email.style.borderColor = "";
-      });
+<!-- ════════════════════════ MÓDULOS ════════════════════════ -->
+<section class="section section--tint" id="modulos">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Plataforma completa</span>
+      <h2>Muito além da qualidade: um sistema para a operação inteira</h2>
+      <p class="lead">Comece pela qualidade e cresça conforme a necessidade. Tudo no mesmo sistema, sem integrações frágeis.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-shield"/></svg></div><div><strong>Qualidade (SGQ)</strong><span>BPF, APPCC, POPs e auditoria</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-flask"/></svg></div><div><strong>Laudos técnicos</strong><span>Template pronto e aprovação automática</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-route"/></svg></div><div><strong>Rastreabilidade</strong><span>Lote do insumo ao cliente</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-alert"/></svg></div><div><strong>Não conformidade</strong><span>Causa-raiz e plano de ação</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-doc"/></svg></div><div><strong>Documentos</strong><span>Controle de versão e validade</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-checklist"/></svg></div><div><strong>Checklists</strong><span>Digitais, com foto e offline</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-gauge"/></svg></div><div><strong>Indicadores</strong><span>KPIs e health score em tempo real</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-wrench"/></svg></div><div><strong>Manutenção &amp; Calibração</strong><span>OS, PMP e alerta de vencimento</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-task"/></svg></div><div><strong>Tarefas</strong><span>Responsável, prazo e acompanhamento</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-box"/></svg></div><div><strong>Suprimentos &amp; Almoxarifado</strong><span>Estoque e entrada de insumos</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-factory"/></svg></div><div><strong>Produção</strong><span>Ordens e apontamento por lote</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-hardhat"/></svg></div><div><strong>SST &amp; Crises</strong><span>Segurança do trabalho e contingência</span></div></div>
+    </div>
+  </div>
+</section>
 
-      // If GSAP didn't load (offline / CDN block), just show everything immediately
-      if (!hasGsap) {
-        document.body.classList.add("ready");
-        return;
-      }
+<!-- ════════════════════════ PERSONAS ════════════════════════ -->
+<section class="section section--white" id="para-quem">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Para quem é</span>
+      <h2>Feito para quem vive a qualidade — do chão de fábrica à diretoria</h2>
+    </div>
+    <div class="grid cols-4">
+      <div class="card persona reveal">
+        <div class="persona__photo"><img src="/assets/img/persona-dono.webp" width="760" height="943" alt="Diretor industrial em pé no chão de fábrica" loading="lazy" decoding="async" /></div>
+        <div class="persona__role">Diretor / Dono</div><h3>Dorme tranquilo</h3>
+        <ul><li><svg><use href="#i-check"/></svg> Risco regulatório sob controle</li><li><svg><use href="#i-check"/></svg> Visão da operação num painel</li><li><svg><use href="#i-check"/></svg> Menos dependência de pessoas-chave</li></ul>
+      </div>
+      <div class="card persona reveal" data-delay="1">
+        <div class="persona__photo"><img src="/assets/img/persona-qualidade.webp" width="760" height="943" alt="Responsável da qualidade em ambiente de produção de alimentos" loading="lazy" decoding="async" /></div>
+        <div class="persona__role">Responsável da Qualidade</div><h3>Sai do apagar incêndio</h3>
+        <ul><li><svg><use href="#i-check"/></svg> Auditoria sempre pronta</li><li><svg><use href="#i-check"/></svg> NC com causa-raiz e ação</li><li><svg><use href="#i-check"/></svg> Tudo num lugar só</li></ul>
+      </div>
+      <div class="card persona reveal" data-delay="2">
+        <div class="persona__photo"><img src="/assets/img/persona-tecnico.webp" width="760" height="943" alt="Técnica de laboratório com tablet em laboratório de análises" loading="lazy" decoding="async" /></div>
+        <div class="persona__role">Técnico de laboratório</div><h3>Só digita o valor</h3>
+        <ul><li><svg><use href="#i-check"/></svg> Sem cálculo manual de laudo</li><li><svg><use href="#i-check"/></svg> Verde aprova, vermelho reprova</li><li><svg><use href="#i-check"/></svg> Checklist no tablet, com foto</li></ul>
+      </div>
+      <div class="card persona reveal" data-delay="3">
+        <div class="persona__photo"><img src="/assets/img/persona-auditor.webp" width="1100" height="614" alt="Auditora inspecionando a linha de produção de alimentos com tablet" loading="lazy" decoding="async" style="object-position:32% center" /></div>
+        <div class="persona__role">Consultor / Auditor</div><h3>Evidência na hora</h3>
+        <ul><li><svg><use href="#i-check"/></svg> Registros organizados e datados</li><li><svg><use href="#i-check"/></svg> Rastreabilidade comprovável</li><li><svg><use href="#i-check"/></svg> Implantação mais rápida</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Reveal everything: GSAP takes over
-      document.body.classList.add("ready");
+<!-- ════════════════════════ PROVA SOCIAL (slot oculto) ════════════════════════
+     Produto em pré-lançamento: NÃO há clientes/cases/depoimentos reais ainda.
+     Para ativar quando tiver clientes: remova o atributo `hidden` da <section>
+     abaixo e preencha logos, número e depoimentos com dados REAIS. Não invente. -->
+<section class="section section--white" id="prova-social" hidden>
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Quem confia</span>
+      <h2>Indústrias de alimentos que já usam a SGQ Tech</h2>
+    </div>
+    <!-- número de clientes (preencher data-count e o texto) -->
+    <div class="trace-stats" style="justify-content:center;margin-bottom:40px">
+      <div class="center"><div class="stat__num" data-count="0">0</div><div class="stat__label">indústrias usam a SGQ Tech</div></div>
+    </div>
+    <!-- logos (trocar os placeholders por <img> dos clientes) -->
+    <div class="grid cols-4" style="margin-bottom:40px">
+      <div class="ph ph--wide"><div class="ph__inner"><div class="ph__label">Logo do cliente</div></div></div>
+      <div class="ph ph--wide"><div class="ph__inner"><div class="ph__label">Logo do cliente</div></div></div>
+      <div class="ph ph--wide"><div class="ph__inner"><div class="ph__label">Logo do cliente</div></div></div>
+      <div class="ph ph--wide"><div class="ph__inner"><div class="ph__label">Logo do cliente</div></div></div>
+    </div>
+    <!-- depoimentos (trocar pelo texto real do cliente) -->
+    <div class="grid cols-3">
+      <div class="card"><p style="color:var(--ink);font-size:1.02rem">"Depoimento real do cliente aqui."</p><div class="persona__role" style="margin-top:16px">Nome da pessoa · Cargo, Empresa</div></div>
+      <div class="card"><p style="color:var(--ink);font-size:1.02rem">"Depoimento real do cliente aqui."</p><div class="persona__role" style="margin-top:16px">Nome da pessoa · Cargo, Empresa</div></div>
+      <div class="card"><p style="color:var(--ink);font-size:1.02rem">"Depoimento real do cliente aqui."</p><div class="persona__role" style="margin-top:16px">Nome da pessoa · Cargo, Empresa</div></div>
+    </div>
+  </div>
+</section>
 
-      if (prefersReduced) {
-        // Static, no entrance — accessibility first
-        return;
-      }
+<!-- ════════════════════════ PLANOS ════════════════════════ -->
+<section class="section section--tint" id="planos">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Planos</span>
+      <h2>Um plano por porte — preço fixo, sem cobrança por usuário</h2>
+      <p class="lead">Você paga pelo tamanho da sua operação, não por cabeça nem por módulo. O plano ideal a gente define junto na demonstração.</p>
+    </div>
+    <div class="grid cols-4 plans">
+      <div class="plan reveal">
+        <div class="plan__name">Base</div>
+        <p class="plan__for">Para quem precisa colocar a qualidade no lugar.</p>
+        <div class="plan__meta"><div><strong>até 10</strong>usuários</div><div><strong>10 GB</strong>de arquivos</div></div>
+        <ul class="plan__features">
+          <li><svg><use href="#i-check"/></svg> Qualidade core (BPF/APPCC)</li>
+          <li><svg><use href="#i-check"/></svg> Documentos e checklists</li>
+          <li><svg><use href="#i-check"/></svg> Indicadores essenciais</li>
+        </ul>
+        <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
+        <a href="#agendar" class="btn btn--ghost btn--block">Agendar demonstração</a>
+      </div>
+      <div class="plan plan--featured reveal" data-delay="1">
+        <span class="plan__flag">Mais escolhido</span>
+        <div class="plan__name">Profissional</div>
+        <p class="plan__for">Para a indústria que já vende e precisa escalar a gestão.</p>
+        <div class="plan__meta"><div><strong>até 40</strong>usuários</div><div><strong>30 GB</strong>de arquivos</div></div>
+        <ul class="plan__features">
+          <li><svg><use href="#i-check"/></svg> Tudo do Base</li>
+          <li><svg><use href="#i-check"/></svg> Manutenção e calibração</li>
+          <li><svg><use href="#i-check"/></svg> Suprimentos, RH e comercial</li>
+        </ul>
+        <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
+        <a href="#agendar" class="btn btn--primary btn--block">Agendar demonstração</a>
+      </div>
+      <div class="plan reveal" data-delay="2">
+        <div class="plan__name">Plus</div>
+        <p class="plan__for">Para operações com produção e múltiplos setores.</p>
+        <div class="plan__meta"><div><strong>até 80</strong>usuários</div><div><strong>60 GB</strong>de arquivos</div></div>
+        <ul class="plan__features">
+          <li><svg><use href="#i-check"/></svg> Tudo do Profissional</li>
+          <li><svg><use href="#i-check"/></svg> Produção e almoxarifado</li>
+          <li><svg><use href="#i-check"/></svg> SST e gestão de crises</li>
+        </ul>
+        <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
+        <a href="#agendar" class="btn btn--ghost btn--block">Agendar demonstração</a>
+      </div>
+      <div class="plan reveal" data-delay="3">
+        <div class="plan__name">Enterprise</div>
+        <p class="plan__for">Para grandes operações que precisam de tudo.</p>
+        <div class="plan__meta"><div><strong>150+</strong>usuários</div><div><strong>sob medida</strong></div></div>
+        <ul class="plan__features">
+          <li><svg><use href="#i-check"/></svg> Todos os módulos</li>
+          <li><svg><use href="#i-check"/></svg> Acesso via API</li>
+          <li><svg><use href="#i-check"/></svg> White-label</li>
+        </ul>
+        <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
+        <a href="#agendar" class="btn btn--ghost btn--block">Falar com vendas</a>
+      </div>
+    </div>
 
-      // ── Master entrance timeline ──────────────────────────────────────────
-      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    <!-- Programa Fundadores -->
+    <div class="founders reveal">
+      <div class="hero__bg" aria-hidden="true" style="opacity:0.25"></div>
+      <div class="founders__inner">
+        <div>
+          <span class="founders__badge"><span class="founders__pulse" id="foundersPulse"></span> Programa Fundadores · vagas limitadas</span>
+          <h3>Seja uma das primeiras indústrias a entrar</h3>
+          <p>Quem entra agora garante condição especial de fundador e ajuda a moldar o produto. São poucas vagas — e elas não voltam depois do lançamento.</p>
+        </div>
+        <a href="#agendar" class="btn btn--white btn--lg">Quero minha vaga <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-      tl.from(".logo .sgq", { y: 60, opacity: 0, rotationX: -80, duration: 0.85 })
-        .from(".logo .tech", { y: 60, opacity: 0, rotationX: -80, duration: 0.85 }, "-=0.65")
-        .from(".logo .dot", {
-          scale: 0,
-          opacity: 0,
-          duration: 0.9,
-          ease: "elastic.out(1.2, 0.5)"
-        }, "-=0.4")
-        .from(".subtitle", { y: 18, opacity: 0, duration: 0.55 }, "-=0.4")
-        .from(".divider", { scaleX: 0, duration: 0.5 }, "-=0.25")
-        .from(".headline .word", {
-          y: 28,
-          opacity: 0,
-          stagger: 0.05,
-          duration: 0.55
-        }, "-=0.15")
-        .from(".description", { y: 14, opacity: 0, duration: 0.5 }, "-=0.2")
-        .from(".badge", {
-          y: 18,
-          opacity: 0,
-          scale: 0.92,
-          stagger: 0.055,
-          duration: 0.45
-        }, "-=0.25")
-        .from(".cta-label", { y: 12, opacity: 0, duration: 0.4 }, "-=0.15")
-        .from(".form", { y: 12, opacity: 0, duration: 0.5 }, "-=0.25");
+<!-- ════════════════════════ CTA FINAL + FORM ════════════════════════ -->
+<section class="section section--dark has-bg" id="agendar">
+  <div class="section-bg" aria-hidden="true"><img src="/assets/img/cena-industria.webp" width="1280" height="714" alt="" loading="lazy" decoding="async" /></div>
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <span class="eyebrow reveal">Agende sua demonstração</span>
+        <h2 class="reveal" data-delay="1">Veja a SGQ Tech rodando com o seu produto</h2>
+        <p class="lead reveal" data-delay="2">Uma conversa rápida e direta. Mostramos o sistema com um laudo do seu segmento e respondemos onde a SGQ Tech encaixa na sua operação.</p>
+        <ul class="reveal" data-delay="2" style="margin-top:18px;display:flex;flex-direction:column;gap:11px">
+          <li style="display:flex;gap:10px;color:var(--muted-dark)"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Sem compromisso e sem cartão de crédito</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark)"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Implantação consultiva, com gente que fala a língua do setor</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark)"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Resposta no mesmo dia útil</li>
+        </ul>
+      </div>
 
-      // ── Idle loops ────────────────────────────────────────────────────────
+      <div class="hero__visual reveal" data-delay="2">
+        <form class="lead-form" id="demoForm" novalidate>
+          <div class="field">
+            <label for="df-name">Nome <span class="req">*</span></label>
+            <input class="input" type="text" id="df-name" name="name" placeholder="Seu nome" autocomplete="name" required />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="df-email">E-mail <span class="req">*</span></label>
+              <input class="input" type="email" id="df-email" name="email" placeholder="voce@empresa.com.br" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="df-phone">WhatsApp / Telefone</label>
+              <input class="input" type="tel" id="df-phone" name="phone" placeholder="(00) 00000-0000" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="df-company">Empresa</label>
+              <input class="input" type="text" id="df-company" name="company" placeholder="Nome da indústria" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="df-plan">Plano de interesse</label>
+              <select class="select" id="df-plan" name="plan_interest">
+                <option value="">Não sei ainda</option>
+                <option value="Base">Base</option>
+                <option value="Profissional">Profissional</option>
+                <option value="Plus">Plus</option>
+                <option value="Enterprise">Enterprise</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="df-message">Conte rapidamente sua necessidade</label>
+            <textarea class="textarea" id="df-message" name="message" placeholder="Ex.: precisamos emitir laudo por lote e estamos iniciando a FSSC 22000."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" id="demoSubmit">Agendar demonstração</button>
+          <p class="form-note">Ao enviar, você concorda em ser contatado pela equipe da SGQ Tech. Seus dados não são compartilhados.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Glow pulse
-      gsap.to(".glow", {
-        opacity: 0.55,
-        scale: 1.08,
-        duration: 3.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        transformOrigin: "center"
-      });
+<!-- ════════════════════════ CALCULADORA DE RISCO ════════════════════════ -->
+<section class="section section--tint" id="calculadora">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Diagnóstico gratuito · 1 minuto</span>
+      <h2>Calcule o risco invisível da sua operação</h2>
+      <p class="lead">Seis perguntas rápidas para medir o quanto a sua gestão de qualidade está exposta. No fim, você recebe seu índice de risco.</p>
+    </div>
 
-      // Coral dot soft float (starts after timeline)
-      tl.call(function () {
-        gsap.to(".logo .dot", {
-          y: -6,
-          duration: 1.6,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        });
-      });
+    <div class="calc-wrap reveal">
+      <div class="calc" id="calc">
+        <div class="calc__progress"><div class="calc__progress-bar" id="calcBar"></div></div>
+        <div class="calc__inner" id="calcInner">
+          <!-- Perguntas (renderizadas estáticas p/ SEO; JS controla a navegação) -->
+          <div class="calc__step" data-step="0">
+            <div class="calc__step-label">Pergunta <span class="js-step">1</span> de 6</div>
+            <p class="calc__q">Como vocês emitem os laudos técnicos hoje?</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="laudo" data-val="papel_excel" data-score="100"><span class="dot"></span> No papel ou no Excel, manualmente</button>
+              <button class="calc__opt" data-q="laudo" data-val="word_pdf" data-score="60"><span class="dot"></span> Em Word/PDF, mas conferido à mão</button>
+              <button class="calc__opt" data-q="laudo" data-val="sistema" data-score="0"><span class="dot"></span> Num sistema dedicado, com aprovação automática</button>
+            </div>
+          </div>
+          <div class="calc__step" data-step="1" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">2</span> de 6</div>
+            <p class="calc__q">Se um cliente reclamar de um lote agora, em quanto tempo você rastreia tudo?</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="rastreio" data-val="dias" data-score="100"><span class="dot"></span> Dias — ou talvez nem consiga reconstruir</button>
+              <button class="calc__opt" data-q="rastreio" data-val="horas" data-score="55"><span class="dot"></span> Algumas horas folheando registros</button>
+              <button class="calc__opt" data-q="rastreio" data-val="minutos" data-score="0"><span class="dot"></span> Minutos, com tudo registrado</button>
+            </div>
+          </div>
+          <div class="calc__step" data-step="2" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">3</span> de 6</div>
+            <p class="calc__q">Seus checklists de BPF / APPCC são…</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="checklist" data-val="papel" data-score="100"><span class="dot"></span> No papel</button>
+              <button class="calc__opt" data-q="checklist" data-val="planilha" data-score="55"><span class="dot"></span> Em planilha</button>
+              <button class="calc__opt" data-q="checklist" data-val="digital" data-score="0"><span class="dot"></span> Digitais, com foto e funcionando offline</button>
+            </div>
+          </div>
+          <div class="calc__step" data-step="3" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">4</span> de 6</div>
+            <p class="calc__q">Quando há uma não conformidade, você registra causa-raiz e plano de ação?</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="nc" data-val="nao" data-score="100"><span class="dot"></span> Não, no máximo anotamos o que houve</button>
+              <button class="calc__opt" data-q="nc" data-val="informal" data-score="55"><span class="dot"></span> Às vezes, de forma informal</button>
+              <button class="calc__opt" data-q="nc" data-val="sempre" data-score="0"><span class="dot"></span> Sempre, com método e acompanhamento</button>
+            </div>
+          </div>
+          <div class="calc__step" data-step="4" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">5</span> de 6</div>
+            <p class="calc__q">Seus instrumentos têm controle de calibração com alerta de vencimento?</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="calibracao" data-val="nao" data-score="100"><span class="dot"></span> Não temos controle</button>
+              <button class="calc__opt" data-q="calibracao" data-val="planilha" data-score="55"><span class="dot"></span> Numa planilha que conferimos manualmente</button>
+              <button class="calc__opt" data-q="calibracao" data-val="sistema" data-score="0"><span class="dot"></span> Sistema com alerta automático</button>
+            </div>
+          </div>
+          <div class="calc__step" data-step="5" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">6</span> de 6</div>
+            <p class="calc__q">Se a ANVISA ou o MAPA aparecessem amanhã, em quanto tempo você reúne todas as evidências?</p>
+            <div class="calc__options">
+              <button class="calc__opt" data-q="auditoria" data-val="nao_pronto" data-score="100"><span class="dot"></span> Não estaríamos prontos</button>
+              <button class="calc__opt" data-q="auditoria" data-val="dias" data-score="55"><span class="dot"></span> Levaria dias de preparação</button>
+              <button class="calc__opt" data-q="auditoria" data-val="minutos" data-score="0"><span class="dot"></span> Está sempre pronto</button>
+            </div>
+          </div>
 
-      // Floating particles (slow, parallaxed)
-      gsap.to(".particle.p1", {
-        x: 60, y: 40,
-        duration: 14,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-      gsap.to(".particle.p2", {
-        x: -50, y: -30,
-        duration: 18,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-      gsap.to(".particle.p3", {
-        x: 40, y: -50,
-        duration: 22,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
+          <!-- Resultado -->
+          <div class="calc__step calc__result" data-step="result" hidden>
+            <div class="calc__step-label">Seu resultado</div>
+            <div class="gauge" id="calcGauge" aria-hidden="true">
+              <svg viewBox="0 0 200 110" width="200" height="110">
+                <path d="M10 105 A90 90 0 0 1 190 105" fill="none" stroke="var(--line)" stroke-width="14" stroke-linecap="round"/>
+                <path id="gaugeArc" d="M10 105 A90 90 0 0 1 190 105" fill="none" stroke="var(--teal)" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+              </svg>
+              <div class="gauge__num" id="calcScore">0</div>
+            </div>
+            <div class="gauge__cap">índice de risco · 0 a 100</div>
+            <div class="risk-band" id="calcBand">—</div>
+            <p id="calcVerdict" style="max-width:460px;margin:6px auto 0;color:var(--muted)"></p>
 
-      // ── Microinteractions ────────────────────────────────────────────────
+            <form class="calc__result-form" id="calcForm" novalidate>
+              <p style="font-weight:600;margin-bottom:14px;color:var(--ink)">Receba o diagnóstico completo e veja como reduzir esse risco:</p>
+              <div class="field">
+                <label for="cf-name">Nome <span class="req">*</span></label>
+                <input class="input" type="text" id="cf-name" name="name" placeholder="Seu nome" autocomplete="name" required />
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="cf-email">E-mail <span class="req">*</span></label>
+                  <input class="input" type="email" id="cf-email" name="email" placeholder="voce@empresa.com.br" autocomplete="email" required />
+                </div>
+                <div class="field">
+                  <label for="cf-company">Empresa</label>
+                  <input class="input" type="text" id="cf-company" name="company" placeholder="Nome da indústria" autocomplete="organization" />
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg btn--block" id="calcSubmit">Quero meu diagnóstico</button>
+              <p class="form-note">Sem spam. Usamos seus dados só para enviar o diagnóstico e falar com você.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Badges lift on hover
-      document.querySelectorAll(".badge").forEach(function (b) {
-        b.addEventListener("mouseenter", function () {
-          gsap.to(b, { y: -3, duration: 0.25, ease: "power2.out" });
-        });
-        b.addEventListener("mouseleave", function () {
-          gsap.to(b, { y: 0, duration: 0.3, ease: "power2.out" });
-        });
-      });
+<!-- ════════════════════════ FAQ ════════════════════════ -->
+<section class="section section--white" id="faq">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2>Dúvidas sobre o software de gestão da qualidade</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>O que é um software de gestão da qualidade (SGQ) para indústria de alimentos? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">É um sistema que centraliza tudo o que a sua indústria de alimentos precisa para garantir a qualidade e a conformidade: emissão de laudo técnico, rastreabilidade de lote, checklists de BPF e APPCC, gestão de não conformidade, calibração e documentos. A SGQ Tech substitui as planilhas dispersas por um único sistema, já configurado para o seu produto.</div>
+      </details>
+      <details class="faq-item">
+        <summary>A SGQ Tech ajuda na certificação APPCC, ISO 22000, FSSC 22000 e IFS? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">Sim. A plataforma organiza POPs, checklists com foto, registros de não conformidade, calibração e evidências de auditoria no formato que essas normas exigem — incluindo APPCC/HACCP, ISO 22000, FSSC 22000 v6 e IFS Food/BRCGS, além de BPF, RDC da ANVISA e exigências do MAPA.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona a rastreabilidade de lote? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">Cada lote é rastreado do recebimento do insumo até a entrega ao cliente. Em caso de recall ou reclamação, você localiza em minutos toda a cadeia — matéria-prima, produção, laudos e destino — em vez de horas folheando papel.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso parar de usar Excel? Como é a migração? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">Sim — o Excel é grátis até a autuação. A implantação é consultiva: configuramos o sistema com o seu produto, importamos o essencial e treinamos a equipe. O técnico passa a só digitar o valor; o sistema aprova (verde) ou reprova (vermelho) automaticamente.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Para quais segmentos da indústria de alimentos a SGQ Tech serve? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">Para indústrias de alimentos reguladas em geral: sal iodado, temperos e condimentos, sucos e polpas, castanha, mel, água mineral, pescado e camarão, laticínios e conservas, entre outros. Onde há obrigação de laudo, rastreabilidade e auditoria, a SGQ Tech se aplica.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Como funcionam os laudos técnicos no sistema? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">O laudo chega pronto: o template do seu produto já vem configurado com os parâmetros e limites (por exemplo, um laudo de sal refinado iodado com 23 parâmetros). O técnico digita o valor, o sistema aprova ou reprova automaticamente, numera o documento e gera o PDF no padrão visual da sua empresa.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto custa a SGQ Tech? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-item__body">São quatro planos por porte de empresa (Base, Profissional, Plus e Enterprise), com preço fixo por faixa — nunca por usuário ou por módulo. O plano ideal é definido em uma demonstração rápida, de acordo com o tamanho e a necessidade da sua operação.</div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
 
-      // Magnetic button (only on devices with hover)
-      var supportsHover = window.matchMedia &&
-        window.matchMedia("(hover: hover)").matches;
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <!-- contatos acima -->
+    <div class="footer-contacts">
+      <a class="footer-contact" href="https://wa.me/5584988504395?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20SGQ%20Tech" target="_blank" rel="noopener">
+        <svg><use href="#i-whatsapp"/></svg><span><span class="fc-label">WHATSAPP</span><br><span class="fc-value">(84) 98850-4395</span></span>
+      </a>
+      <a class="footer-contact" href="mailto:comercial@sgqtech.com.br">
+        <svg><use href="#i-mail"/></svg><span><span class="fc-label">E-MAIL COMERCIAL</span><br><span class="fc-value">comercial@sgqtech.com.br</span></span>
+      </a>
+      <a class="footer-contact" href="https://instagram.com/sgqtech" target="_blank" rel="noopener">
+        <svg><use href="#i-instagram"/></svg><span><span class="fc-label">INSTAGRAM</span><br><span class="fc-value">@sgqtech</span></span>
+      </a>
+      <a class="footer-contact" href="https://www.linkedin.com/company/sgq-tech/" target="_blank" rel="noopener">
+        <svg><use href="#i-linkedin"/></svg><span><span class="fc-label">LINKEDIN</span><br><span class="fc-value">SGQ Tech</span></span>
+      </a>
+    </div>
 
-      if (supportsHover) {
-        button.addEventListener("mousemove", function (e) {
-          var rect = button.getBoundingClientRect();
-          var x = e.clientX - rect.left - rect.width / 2;
-          var y = e.clientY - rect.top - rect.height / 2;
-          gsap.to(button, {
-            x: x * 0.25, y: y * 0.35,
-            duration: 0.4, ease: "power3.out"
-          });
-          gsap.to(buttonLabel, {
-            x: x * 0.12, y: y * 0.18,
-            duration: 0.4, ease: "power3.out"
-          });
-        });
-        button.addEventListener("mouseleave", function () {
-          gsap.to(button, {
-            x: 0, y: 0,
-            duration: 0.55, ease: "elastic.out(1, 0.4)"
-          });
-          gsap.to(buttonLabel, {
-            x: 0, y: 0,
-            duration: 0.55, ease: "elastic.out(1, 0.4)"
-          });
-        });
-      }
-    })();
-  </script>
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="wordmark"><span class="wordmark__sgq">sgq</span><span class="wordmark__tech">tech</span><span class="wordmark__dot">.</span></a>
+        <p class="footer-about">Software de gestão da qualidade para a indústria de alimentos. Laudo técnico, rastreabilidade de lote, APPCC e não conformidade — já configurado para o seu produto.</p>
+      </div>
+      <div>
+        <h4>Produto</h4>
+        <a href="#virada">Como funciona</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#planos">Planos</a>
+      </div>
+      <div>
+        <h4>Comece agora</h4>
+        <a href="#agendar">Agendar demonstração</a>
+        <a href="#calculadora">Calcular meu risco</a>
+        <a href="#faq">Perguntas frequentes</a>
+        <a href="https://wa.me/5584988504395?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20SGQ%20Tech" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 SGQ Tech · Software de gestão da qualidade para indústria de alimentos.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com/sgqtech" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+        <a href="https://www.linkedin.com/company/sgq-tech/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a class="wa-float" href="https://wa.me/5584988504395?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20SGQ%20Tech" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg><use href="#i-whatsapp"/></svg>
+</a>
+
+<!-- container de toasts -->
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+<!-- ════════════════════════ SCRIPTS ════════════════════════ -->
+<!-- Bibliotecas de animação (CDN, defer; falham com graça) -->
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script defer src="/assets/js/anim.js"></script>
+<!-- App: captura de leads + calculadora (módulo) -->
+<script type="module" src="/assets/js/app.js"></script>
 </body>
 </html>

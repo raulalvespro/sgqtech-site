@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /em-breve
+
+Sitemap: https://sgqtech.com.br/sitemap.xml

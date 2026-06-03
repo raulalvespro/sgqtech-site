@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="SGQ Tech">
+  <rect width="100" height="100" rx="24" fill="#0F2628"/>
+  <text x="45" y="71" font-family="ui-sans-serif, system-ui, 'Segoe UI', sans-serif" font-weight="800" font-size="64" letter-spacing="-3" text-anchor="middle" fill="#00A99D">s</text>
+  <circle cx="73" cy="72" r="7" fill="#E8845C"/>
+</svg>

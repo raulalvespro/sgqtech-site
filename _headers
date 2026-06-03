@@ -1,0 +1,15 @@
+# Cloudflare Pages — headers
+# Fontes (nome estável, conteúdo imutável): cache de 1 ano
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Demais assets estáticos: cache de 1 dia
+/assets/*
+  Cache-Control: public, max-age=86400
+
+# Segurança básica em todo o site
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()

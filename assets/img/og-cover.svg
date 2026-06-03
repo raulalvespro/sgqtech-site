@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="SGQ Tech — software de gestão da qualidade para indústria de alimentos">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F2628"/>
+      <stop offset="1" stop-color="#10302e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#00A99D" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#00A99D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- dots pattern -->
+  <g fill="#F8F8F8" opacity="0.05">
+    <circle cx="80" cy="520" r="3"/><circle cx="140" cy="520" r="3"/><circle cx="200" cy="520" r="3"/>
+    <circle cx="80" cy="560" r="3"/><circle cx="140" cy="560" r="3"/><circle cx="200" cy="560" r="3"/>
+    <circle cx="80" cy="480" r="3"/><circle cx="140" cy="480" r="3"/><circle cx="200" cy="480" r="3"/>
+  </g>
+  <!-- wordmark -->
+  <text x="90" y="170" font-family="ui-sans-serif, system-ui, 'Segoe UI', sans-serif" font-size="58" font-weight="800" letter-spacing="-3">
+    <tspan fill="#00A99D">sgq</tspan><tspan fill="#F8F8F8">tech</tspan><tspan fill="#E8845C">.</tspan>
+  </text>
+  <!-- eyebrow -->
+  <text x="92" y="250" font-family="ui-monospace, 'SF Mono', Consolas, monospace" font-size="22" letter-spacing="4" fill="#8FB3B2">SOFTWARE DE GESTÃO DA QUALIDADE</text>
+  <!-- headline -->
+  <text font-family="ui-sans-serif, system-ui, 'Segoe UI', sans-serif" font-weight="800" letter-spacing="-2" fill="#F8F8F8">
+    <tspan x="90" y="350" font-size="68">Qualidade pronta para a</tspan>
+    <tspan x="90" y="428" font-size="68">indústria de alimentos.</tspan>
+  </text>
+  <!-- badges -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500">
+    <g>
+      <rect x="90" y="486" width="180" height="48" rx="24" fill="none" stroke="#00A99D" stroke-opacity="0.5"/>
+      <text x="180" y="517" text-anchor="middle" fill="#F8F8F8">APPCC</text>
+    </g>
+    <g>
+      <rect x="284" y="486" width="210" height="48" rx="24" fill="none" stroke="#00A99D" stroke-opacity="0.5"/>
+      <text x="389" y="517" text-anchor="middle" fill="#F8F8F8">ISO 22000</text>
+    </g>
+    <g>
+      <rect x="508" y="486" width="250" height="48" rx="24" fill="none" stroke="#00A99D" stroke-opacity="0.5"/>
+      <text x="633" y="517" text-anchor="middle" fill="#F8F8F8">FSSC 22000 v6</text>
+    </g>
+    <g>
+      <rect x="772" y="486" width="150" height="48" rx="24" fill="none" stroke="#00A99D" stroke-opacity="0.5"/>
+      <text x="847" y="517" text-anchor="middle" fill="#F8F8F8">IFS</text>
+    </g>
+  </g>
+  <!-- laudo card mock (right) -->
+  <g transform="translate(820,150)">
+    <rect x="0" y="0" width="300" height="210" rx="16" fill="#F8F8F8"/>
+    <rect x="0" y="0" width="300" height="8" rx="4" fill="#00A99D"/>
+    <text x="22" y="48" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="700" fill="#0F2628">Laudo — Sal Iodado</text>
+    <text x="22" y="72" font-family="ui-monospace, monospace" font-size="13" fill="#5a6f70">Nº 0001-25/2026</text>
+    <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#0F2628">
+      <text x="22" y="108">Umidade</text><circle cx="270" cy="103" r="9" fill="#00A99D"/>
+      <text x="22" y="138">Iodo (mg/kg)</text><circle cx="270" cy="133" r="9" fill="#00A99D"/>
+      <text x="22" y="168">NaCl (%)</text><circle cx="270" cy="163" r="9" fill="#00A99D"/>
+    </g>
+    <rect x="0" y="180" width="300" height="30" fill="#eef3f2"/>
+    <text x="22" y="200" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700" fill="#00665E">✓ APROVADO</text>
+  </g>
+  <!-- url -->
+  <text x="90" y="585" font-family="ui-monospace, 'SF Mono', monospace" font-size="22" fill="#00A99D">sgqtech.com.br</text>
+</svg>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGQ Tech — Em breve</title>
+  <meta name="description" content="SGQ Tech — Sistema de Gestão da Qualidade. Estamos preparando algo incrível para você." />
+  <meta name="theme-color" content="#0F2628" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F2628'/%3E%3Ctext x='50' y='65' font-family='system-ui' font-weight='800' font-size='42' text-anchor='middle' fill='%2300A99D'%3Es%3C/text%3E%3Ccircle cx='75' cy='75' r='6' fill='%23E8845C'/%3E%3C/svg%3E" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #0F2628;
+      --teal: #00A99D;
+      --teal-dark: #00665E;
+      --coral: #E8845C;
+      --paper: #F8F8F8;
+      --muted: #8ABFC0;
+      --footer: #3A6062;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--ink);
+      color: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Pre-animation guard: hide everything until GSAP signals .ready */
+    body:not(.ready) .stage,
+    body:not(.ready) .footer {
+      visibility: hidden;
+    }
+
+    /* Decorative blurred particles */
+    .particle {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+    .particle.p1 { top: -80px;  left: -80px;  width: 380px; height: 380px; background: var(--teal); }
+    .particle.p2 { bottom: -100px; right: -60px; width: 320px; height: 320px; background: var(--coral); opacity: 0.10; }
+    .particle.p3 { top: 40%; left: -160px; width: 280px; height: 280px; background: var(--teal); opacity: 0.10; }
+
+    /* Soft glow halo behind the stage */
+    .glow {
+      position: fixed;
+      top: -240px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 820px;
+      height: 820px;
+      background: radial-gradient(circle, rgba(0, 169, 157, 0.18) 0%, rgba(0, 169, 157, 0) 65%);
+      pointer-events: none;
+      z-index: 0;
+      will-change: opacity, transform;
+    }
+
+    .stage {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: clamp(56px, 11vw, 104px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      user-select: none;
+      display: inline-flex;
+      perspective: 800px;
+    }
+    .logo span {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+    .logo .sgq { color: var(--teal); }
+    .logo .tech { color: var(--paper); }
+    .logo .dot {
+      color: var(--coral);
+      transform-origin: center;
+    }
+
+    .subtitle {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: clamp(11px, 1.6vw, 13px);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 600;
+      will-change: transform, opacity;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background-color: var(--teal);
+      margin: 28px auto 24px;
+      border-radius: 2px;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    .headline {
+      font-size: clamp(22px, 3.6vw, 32px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--paper);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .headline .word {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+
+    .description {
+      color: rgba(248, 248, 248, 0.7);
+      font-size: clamp(14px, 1.7vw, 16px);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      will-change: transform, opacity;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 169, 157, 0.35);
+      background-color: rgba(0, 169, 157, 0.06);
+      color: var(--paper);
+      font-size: 13px;
+      font-weight: 500;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+      will-change: transform, opacity;
+    }
+    .badge .check {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .cta-label {
+      color: rgba(248, 248, 248, 0.85);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      will-change: transform, opacity;
+    }
+
+    .form {
+      display: flex;
+      gap: 8px;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      will-change: transform, opacity;
+    }
+
+    .input {
+      flex: 1 1 240px;
+      min-width: 0;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(248, 248, 248, 0.16);
+      background-color: rgba(248, 248, 248, 0.05);
+      color: var(--paper);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .input::placeholder {
+      color: rgba(248, 248, 248, 0.35);
+    }
+    .input:focus {
+      border-color: var(--teal);
+      background-color: rgba(248, 248, 248, 0.08);
+      box-shadow: 0 0 0 4px rgba(0, 169, 157, 0.18);
+    }
+
+    .button {
+      position: relative;
+      height: 48px;
+      padding: 0 22px;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--teal);
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .button:hover {
+      background-color: var(--teal-dark);
+      color: var(--paper);
+      box-shadow: 0 12px 32px -8px rgba(0, 169, 157, 0.55);
+    }
+    .button:active {
+      transition: transform 0.08s ease;
+      transform: scale(0.97);
+    }
+
+    .success {
+      display: none;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 169, 157, 0.5);
+      background-color: rgba(0, 169, 157, 0.1);
+      color: var(--teal);
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .success.show {
+      display: block;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 48px;
+      color: var(--footer);
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+    .footer a:hover {
+      color: var(--teal);
+    }
+
+    @media (max-width: 480px) {
+      .badge { font-size: 12px; padding: 7px 12px; }
+      .form { gap: 10px; }
+      .button { width: 100%; }
+    }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .particle, .glow { animation: none !important; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="particle p1" aria-hidden="true"></div>
+  <div class="particle p2" aria-hidden="true"></div>
+  <div class="particle p3" aria-hidden="true"></div>
+
+  <main class="stage" role="main">
+    <h1 class="logo" aria-label="SGQ Tech">
+      <span class="sgq">sgq</span><span class="tech">tech</span><span class="dot">.</span>
+    </h1>
+
+    <p class="subtitle">Sistema de Gestão da Qualidade</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <h2 class="headline">Estamos preparando algo incrível para você</h2>
+
+    <p class="description">
+      Uma plataforma completa para empresas industriais centralizarem qualidade, laudos técnicos,
+      rastreabilidade, manutenção e gestão documental em um único lugar. Conformidade na rotina,
+      sem planilhas e sem retrabalho.
+    </p>
+
+    <div class="badges" role="list">
+      <span class="badge" role="listitem"><span class="check">✓</span> Laudos Técnicos</span>
+      <span class="badge" role="listitem"><span class="check">✓</span> Rastreabilidade</span>
+      <span class="badge" role="listitem"><span class="check">✓</span> Não Conformidades</span>
+      <span class="badge" role="listitem"><span class="check">✓</span> Manutenção</span>
+      <span class="badge" role="listitem"><span class="check">✓</span> Checklists Digitais</span>
+      <span class="badge" role="listitem"><span class="check">✓</span> Gestão Documental</span>
+    </div>
+
+    <p class="cta-label">Seja avisado quando lançarmos:</p>
+
+    <form class="form" id="notify-form" novalidate>
+      <input
+        type="email"
+        class="input"
+        id="email"
+        placeholder="seu@email.com.br"
+        autocomplete="email"
+        required
+        aria-label="Seu e-mail"
+      />
+      <button type="submit" class="button" id="notify-btn">
+        <span class="button-label">Quero ser avisado</span>
+      </button>
+    </form>
+
+    <div class="success" id="success" role="status" aria-live="polite">
+      ✓ Pronto! Vamos avisar você assim que lançarmos.
+    </div>
+  </main>
+
+  <footer class="footer">
+    Lançamento previsto para junho de 2026 ·
+    <a href="https://sgqtech.com.br">sgqtech.com.br</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var hasGsap = typeof window.gsap !== "undefined";
+      var prefersReduced = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Split headline into words for word-by-word reveal
+      var headline = document.querySelector(".headline");
+      if (headline) {
+        var words = headline.textContent.trim().split(/\s+/);
+        headline.innerHTML = words
+          .map(function (w) { return '<span class="word">' + w + '</span>'; })
+          .join(" ");
+      }
+
+      var form = document.getElementById("notify-form");
+      var success = document.getElementById("success");
+      var email = document.getElementById("email");
+      var button = document.getElementById("notify-btn");
+      var buttonLabel = button.querySelector(".button-label");
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function handleSubmit() {
+        var value = email.value.trim();
+        if (!isValidEmail(value)) {
+          email.focus();
+          if (hasGsap && !prefersReduced) {
+            gsap.fromTo(email,
+              { x: -8 },
+              { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)",
+                onStart: function () { email.style.borderColor = "#E8845C"; }
+              }
+            );
+          } else {
+            email.style.borderColor = "#E8845C";
+          }
+          return;
+        }
+        if (hasGsap && !prefersReduced) {
+          gsap.to(form, { opacity: 0, y: -8, duration: 0.3, ease: "power2.in",
+            onComplete: function () {
+              form.style.display = "none";
+              success.classList.add("show");
+              gsap.fromTo(success,
+                { opacity: 0, y: 8 },
+                { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+              );
+            }
+          });
+        } else {
+          form.style.display = "none";
+          success.classList.add("show");
+        }
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        handleSubmit();
+      });
+
+      email.addEventListener("input", function () {
+        email.style.borderColor = "";
+      });
+
+      // If GSAP didn't load (offline / CDN block), just show everything immediately
+      if (!hasGsap) {
+        document.body.classList.add("ready");
+        return;
+      }
+
+      // Reveal everything: GSAP takes over
+      document.body.classList.add("ready");
+
+      if (prefersReduced) {
+        // Static, no entrance — accessibility first
+        return;
+      }
+
+      // ── Master entrance timeline ──────────────────────────────────────────
+      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(".logo .sgq", { y: 60, opacity: 0, rotationX: -80, duration: 0.85 })
+        .from(".logo .tech", { y: 60, opacity: 0, rotationX: -80, duration: 0.85 }, "-=0.65")
+        .from(".logo .dot", {
+          scale: 0,
+          opacity: 0,
+          duration: 0.9,
+          ease: "elastic.out(1.2, 0.5)"
+        }, "-=0.4")
+        .from(".subtitle", { y: 18, opacity: 0, duration: 0.55 }, "-=0.4")
+        .from(".divider", { scaleX: 0, duration: 0.5 }, "-=0.25")
+        .from(".headline .word", {
+          y: 28,
+          opacity: 0,
+          stagger: 0.05,
+          duration: 0.55
+        }, "-=0.15")
+        .from(".description", { y: 14, opacity: 0, duration: 0.5 }, "-=0.2")
+        .from(".badge", {
+          y: 18,
+          opacity: 0,
+          scale: 0.92,
+          stagger: 0.055,
+          duration: 0.45
+        }, "-=0.25")
+        .from(".cta-label", { y: 12, opacity: 0, duration: 0.4 }, "-=0.15")
+        .from(".form", { y: 12, opacity: 0, duration: 0.5 }, "-=0.25");
+
+      // ── Idle loops ────────────────────────────────────────────────────────
+
+      // Glow pulse
+      gsap.to(".glow", {
+        opacity: 0.55,
+        scale: 1.08,
+        duration: 3.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        transformOrigin: "center"
+      });
+
+      // Coral dot soft float (starts after timeline)
+      tl.call(function () {
+        gsap.to(".logo .dot", {
+          y: -6,
+          duration: 1.6,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut"
+        });
+      });
+
+      // Floating particles (slow, parallaxed)
+      gsap.to(".particle.p1", {
+        x: 60, y: 40,
+        duration: 14,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+      gsap.to(".particle.p2", {
+        x: -50, y: -30,
+        duration: 18,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+      gsap.to(".particle.p3", {
+        x: 40, y: -50,
+        duration: 22,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // ── Microinteractions ────────────────────────────────────────────────
+
+      // Badges lift on hover
+      document.querySelectorAll(".badge").forEach(function (b) {
+        b.addEventListener("mouseenter", function () {
+          gsap.to(b, { y: -3, duration: 0.25, ease: "power2.out" });
+        });
+        b.addEventListener("mouseleave", function () {
+          gsap.to(b, { y: 0, duration: 0.3, ease: "power2.out" });
+        });
+      });
+
+      // Magnetic button (only on devices with hover)
+      var supportsHover = window.matchMedia &&
+        window.matchMedia("(hover: hover)").matches;
+
+      if (supportsHover) {
+        button.addEventListener("mousemove", function (e) {
+          var rect = button.getBoundingClientRect();
+          var x = e.clientX - rect.left - rect.width / 2;
+          var y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(button, {
+            x: x * 0.25, y: y * 0.35,
+            duration: 0.4, ease: "power3.out"
+          });
+          gsap.to(buttonLabel, {
+            x: x * 0.12, y: y * 0.18,
+            duration: 0.4, ease: "power3.out"
+          });
+        });
+        button.addEventListener("mouseleave", function () {
+          gsap.to(button, {
+            x: 0, y: 0,
+            duration: 0.55, ease: "elastic.out(1, 0.4)"
+          });
+          gsap.to(buttonLabel, {
+            x: 0, y: 0,
+            duration: 0.55, ease: "elastic.out(1, 0.4)"
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
