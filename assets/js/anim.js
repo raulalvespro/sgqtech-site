@@ -67,6 +67,41 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  /* ── Laudo: "trava e folheia" (scroll-jacking via sticky + transform, sem ScrollTrigger) ──
+     A seção #laudos vira um trilho (100vh + D). O miolo .laudo-pin gruda (sticky) e,
+     enquanto grudado, o strip do laudo desliza do topo ao fim conforme o scroll. Robusto:
+     recalcula a posição a cada scroll real (não depende de ticker/refresh do GSAP). */
+  (function initLaudoPin() {
+    var sec = document.getElementById('laudos');
+    var scroll = document.getElementById('laudoScroll');
+    var strip = document.getElementById('laudoStrip');
+    if (!sec || !scroll || !strip || !sec.querySelector('.laudo-pin')) return;
+    var D = 0, enabled = false;
+    function canPin() { return !prefersReduced && window.innerWidth >= 901 && window.innerHeight >= 560; }
+    function apply() {
+      if (!enabled) return;
+      var p = (-sec.getBoundingClientRect().top) / D;
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      strip.style.transform = 'translate3d(0,' + (-(p * D)).toFixed(1) + 'px,0)';
+    }
+    function enable() {
+      sec.classList.add('is-pinnable');        // aplica o CSS do pin antes de medir
+      strip.style.transform = 'translate3d(0,0,0)';
+      D = strip.offsetHeight - scroll.clientHeight;
+      if (D < 40) { disable(); return; }
+      sec.style.height = 'calc(100vh + ' + Math.round(D) + 'px)';
+      enabled = true; apply();
+    }
+    function disable() { enabled = false; sec.classList.remove('is-pinnable'); sec.style.height = ''; strip.style.transform = ''; }
+    function measure() { if (canPin()) enable(); else disable(); }
+    var imgs = strip.querySelectorAll('img'), n = 0;
+    function ready() { if (++n >= imgs.length) measure(); }
+    if (imgs.length) { imgs.forEach(function (im) { if (im.complete) ready(); else im.addEventListener('load', ready); }); }
+    else { measure(); }
+    window.addEventListener('scroll', apply, { passive: true });
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(measure, 150); });
+  })();
+
   /* ── FAQ: abrir um fecha os outros ────────────────────────────────── */
   var faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function (d) {
@@ -268,22 +303,7 @@
          de reveal (CSS `html.js .signal`) — mais robusto que o ScrollTrigger aqui,
          que dependia de refresh/timing de layout e podia disparar fora da tela. */
 
-      /* Laudo — folheia: o quadro rola por dentro conforme você passa a seção (sem pin, sem CLS) */
-      var lScroll = document.getElementById('laudoScroll');
-      if (lScroll && ST && window.innerWidth > 768) {
-        var setupLaudo = function () {
-          var max = lScroll.scrollHeight - lScroll.clientHeight;
-          if (max > 20) {
-            gsap.to(lScroll, {
-              scrollTop: max, ease: 'none',
-              scrollTrigger: { trigger: '#laudos', start: 'top 60%', end: 'bottom bottom', scrub: 0.6, invalidateOnRefresh: true }
-            });
-          }
-        };
-        var li = lScroll.querySelectorAll('img'), ln = 0;
-        var lr = function () { ln++; if (ln >= li.length) { setupLaudo(); ScrollTrigger.refresh(); } };
-        li.forEach(function (im) { if (im.complete) lr(); else im.addEventListener('load', lr); });
-      }
+      /* Laudo "trava e folheia": movido p/ fora do GSAP (sticky + scroll) — ver initLaudoPin no escopo base */
     } catch (e) { /* realce é opcional — nunca quebra a página */ }
 
   } else if (window.anime) {
