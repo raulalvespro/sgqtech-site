@@ -146,42 +146,64 @@
 <!-- ════ Sprite de ícones (line icons, reusáveis via <use>) ════ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- base / UI -->
       <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
       <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
       <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></symbol>
-      <symbol id="i-radar" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 12 19 5"/><path d="M12 12a3 3 0 1 0 3 3"/></symbol>
-      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
-      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 14h9"/></symbol>
-      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H14a3.5 3.5 0 0 0 0-7H10a3.5 3.5 0 0 1 0-7h5.5"/></symbol>
-      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.6 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14 8 9"/><path d="M3.5 18a9 9 0 1 1 17 0"/></symbol>
-      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6.2 6.2a2 2 0 1 0 2.8 2.8l6.2-6.2a4 4 0 0 0 5.2-5.2l-2.6 2.6-2-2 2.6-2.6Z"/></symbol>
-      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
-      <symbol id="i-checklist" viewBox="0 0 24 24"><path d="M9 5h10M9 12h10M9 19h10"/><path d="m3 5 1.5 1.5L7 4M3 12l1.5 1.5L7 11M3 19l1.5 1.5L7 18"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-      <symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9-5-9 5v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></symbol>
-      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.4 12h11l1.6-8H6"/></symbol>
-      <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V9l6 4V9l6 4V5h3v16H3Z"/><path d="M7 17h.01M12 17h.01M17 17h.01"/></symbol>
-      <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M3 17a9 9 0 0 1 18 0"/><path d="M2 17h20v3H2zM10 6a2 2 0 0 1 4 0v3M9 9V7M15 9V7"/></symbol>
-      <symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 19a5 5 0 0 1 10 0v1H7v-1Z"/><path d="M12 4V2M5 9 3.5 7.5M19 9l1.5-1.5M9 9a3 3 0 0 1 6 0"/></symbol>
-      <symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 10h18M9 4v16"/></symbol>
-      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></symbol>
-      <symbol id="i-user-x" viewBox="0 0 24 24"><path d="M14 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="8" cy="7" r="4"/><path d="m17 8 4 4M21 8l-4 4"/></symbol>
-      <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
-      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L3 21"/></symbol>
-      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="M21.8 10A10 10 0 1 1 17 3.3"/><path d="m9 11 3 3L22 4"/></symbol>
+      <!-- pilares -->
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.8 2.2a2 2 0 0 0-1.6 0L2.6 6.1a1 1 0 0 0 0 1.8l8.6 3.9a2 2 0 0 0 1.6 0l8.6-3.9a1 1 0 0 0 0-1.8Z"/><path d="m22 12.2-9.2 4.2a2 2 0 0 1-1.6 0L2 12.2"/><path d="m22 17.2-9.2 4.2a2 2 0 0 1-1.6 0L2 17.2"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.5a2 2 0 0 0-1.9 1.4l-2.3 8.4a.25.25 0 0 1-.5 0L9.2 2.2a.25.25 0 0 0-.5 0l-2.3 8.4A2 2 0 0 1 4.5 12H2"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.3 21a2 2 0 0 0 3.4 0"/><path d="M22 8c0-2.3-.8-4.3-2-6"/><path d="M3.3 15.3A1 1 0 0 0 4 17h16a1 1 0 0 0 .7-1.7C19.4 14 18 12.5 18 8A6 6 0 0 0 6 8c0 4.5-1.4 6-2.7 7.3"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <!-- problema -->
+      <symbol id="i-file-spreadsheet" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></symbol>
+      <symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1Z"/><path d="M21 12h1M18.5 4.5 18 5M2 12h1M12 2v1M5.5 4.5 6 5"/></symbol>
+      <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+      <symbol id="i-user-minus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></symbol>
+      <symbol id="i-file-x" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m14.5 12.5-5 5M9.5 12.5l5 5"/></symbol>
+      <!-- NC / qualidade -->
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-git-branch" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+      <symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8M13 12h8M13 18h8"/></symbol>
+      <symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+      <symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></symbol>
+      <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+      <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="M12 8v4M12 16h.01"/></symbol>
+      <!-- módulos -->
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+      <symbol id="i-bar-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></symbol>
+      <symbol id="i-kanban" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v7M12 7v4M16 7v9"/></symbol>
+      <symbol id="i-package" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+      <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M7 18h.01M12 18h.01M17 18h.01"/></symbol>
+      <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1Z"/><path d="M10 10V5a2 2 0 0 1 4 0v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6.3 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l6.3-6.3a4 4 0 0 0 5.2-5.2l-2.9 2.9-2.1-2.1Z"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></symbol>
+      <symbol id="i-checklist" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8M13 12h8M13 18h8"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.3M14 9.3V2M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.5 16h13"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+      <!-- 7 sinais -->
+      <symbol id="i-gavel" viewBox="0 0 24 24"><path d="m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8"/><path d="m16 16 6-6M8 8l6-6M9 7l8 8M21 11l-8-8"/><path d="M3 21h7"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><path d="m15.5 12.8 1.5 9.2-5-3-5 3 1.5-9.2"/><circle cx="12" cy="8" r="6"/></symbol>
+      <symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-ship" viewBox="0 0 24 24"><path d="M12 10.2V14M12 2v3"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M19.4 20A11.6 11.6 0 0 0 21 14l-8.2-3.6a2 2 0 0 0-1.6 0L3 14a11.6 11.6 0 0 0 1.6 6"/><path d="M2 21c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1 1.2-1 2.5-1 1.9.5 2.5 1 1.2 1 2.5 1 1.9-.5 2.5-1 1.2-1 2.5-1"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20"/></symbol>
+      <!-- diversos -->
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
+      <symbol id="i-trending" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></symbol>
       <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 21h14M6 18h12v-1a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2.5l.5-2.5a3 3 0 1 0-3 0l.5 2.5A2 2 0 0 1 8 15H6a2 2 0 0 0-2 2v1Z"/></symbol>
       <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+      <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></symbol>
     </g>
   </defs>
 </svg>
@@ -228,7 +250,7 @@
       <div class="hero__content">
         <span class="eyebrow reveal">Software de gestão da qualidade · Indústria de alimentos</span>
         <h1 class="reveal" data-delay="1">Tire a qualidade do papel. <span class="hl">Antes da próxima fiscalização.</span></h1>
-        <p class="lead reveal" data-delay="2">A <strong>SGQ Tech</strong> é o software de gestão da qualidade feito para a indústria de alimentos: laudo técnico, rastreabilidade de lote, APPCC, não conformidade e auditoria — tudo num só lugar, já configurado para o seu produto.</p>
+        <p class="lead reveal" data-delay="2">A <strong>SGQ Tech</strong> é o software de gestão da qualidade feito para a indústria de alimentos: laudo técnico, rastreabilidade de lote, APPCC, não conformidade e auditoria. Tudo num só lugar, já configurado para o seu produto.</p>
         <div class="btn-row hero__cta reveal" data-delay="3">
           <a href="#agendar" class="btn btn--primary btn--lg">Agendar demonstração <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
           <a href="#calculadora" class="btn btn--ghost btn--lg">Calcular meu risco invisível</a>
@@ -259,17 +281,16 @@
   <div class="section-bg" aria-hidden="true"><img src="/assets/img/cena-mesa.webp" width="1280" height="714" alt="" loading="lazy" decoding="async" /></div>
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">A qualidade invisível</span>
-      <h2>O risco que não aparece — até aparecer numa auditoria</h2>
-      <p class="lead">Sua operação pode estar fabricando bem e, mesmo assim, sem prova disso. Quando a qualidade vive em planilhas soltas, no Word de alguém e na cabeça do responsável técnico, o risco fica invisível — até o dia da fiscalização, do recall ou da exigência do cliente.</p>
+      <h2>O risco que não aparece até a fiscalização chegar</h2>
+      <p class="lead">Sua operação pode estar fabricando bem e ainda assim sem prova nenhuma disso. Quando a qualidade vive em planilha solta, num Word perdido e na cabeça do responsável técnico, o risco fica invisível. Ele aparece no pior dia: o da fiscalização, do recall ou da exigência do cliente.</p>
     </div>
     <div class="grid cols-4">
-      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-table"/></svg></div><h3>Planilha que ninguém audita</h3><p>Uma fórmula errada num laudo já é não conformidade — e ninguém percebe até alguém de fora olhar.</p></div>
-      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-rotate"/></svg></div><h3>Recall que leva horas</h3><p>Rastrear um lote do insumo ao cliente vira uma caça ao tesouro em pastas, cadernos e e-mails.</p></div>
-      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-user-x"/></svg></div><h3>Conhecimento que vai embora</h3><p>Quando o RT sai, sai junto o que só estava na cabeça dele. A operação fica refém de uma pessoa.</p></div>
-      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-alert"/></svg></div><h3>Evidência que não existe</h3><p>O processo está certo, mas sem registro rastreável não há como provar para a ANVISA, o MAPA ou o cliente.</p></div>
+      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-file-spreadsheet"/></svg></div><h3>Planilha que ninguém audita</h3><p>Uma fórmula errada num laudo já é não conformidade. E ninguém percebe até alguém de fora olhar.</p></div>
+      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-siren"/></svg></div><h3>Recall que leva horas</h3><p>Rastrear um lote do insumo ao cliente vira caça ao tesouro em pastas, cadernos e e-mails.</p></div>
+      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-user-minus"/></svg></div><h3>Conhecimento que vai embora</h3><p>Quando o responsável técnico sai, vai junto o que só estava na cabeça dele. A operação fica refém de uma pessoa.</p></div>
+      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-file-x"/></svg></div><h3>Evidência que não existe</h3><p>O processo está certo, mas sem registro rastreável não dá para provar isso à ANVISA, ao MAPA ou ao cliente.</p></div>
     </div>
-    <p class="lead reveal mt-l" style="font-weight:600;color:var(--paper)">O Excel é grátis — até a autuação.</p>
+    <p class="lead reveal mt-l" style="font-weight:600;color:var(--paper)">O Excel é grátis até a autuação.</p>
   </div>
 </section>
 
@@ -277,19 +298,34 @@
 <section class="section section--white" id="virada">
   <div class="container">
     <div class="section-head section-head--center reveal">
-      <span class="eyebrow">A virada</span>
       <h2>De planilha dispersa a um sistema que antecipa</h2>
-      <p class="lead">Quatro movimentos para transformar a sua gestão de qualidade SGQ de reativa em previsível.</p>
+      <p class="lead">Quatro movimentos para a sua gestão de qualidade deixar de ser corre-corre e virar rotina previsível.</p>
     </div>
     <div class="grid cols-4">
-      <div class="card pillar reveal"><div class="icon-badge"><svg><use href="#i-layers"/></svg></div><div class="pillar__num">01</div><h3>Centralize</h3><p>Laudos, documentos, checklists, não conformidades e indicadores num único sistema — não em dez planilhas.</p></div>
-      <div class="card pillar reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-chart"/></svg></div><div class="pillar__num">02</div><h3>Visualize</h3><p>Indicadores de qualidade em tempo real e health score da operação. O que está fora do controle aparece na hora.</p></div>
-      <div class="card pillar reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-radar"/></svg></div><div class="pillar__num">03</div><h3>Antecipe</h3><p>Alertas de calibração vencendo, não conformidade com causa-raiz e plano de ação. Você age antes do problema.</p></div>
-      <div class="card pillar reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-target"/></svg></div><div class="pillar__num">04</div><h3>Decida</h3><p>Dados confiáveis e evidência pronta para auditoria. Decisões com base no que aconteceu de verdade.</p></div>
+      <div class="card pillar reveal"><div class="icon-badge"><svg><use href="#i-layers"/></svg></div><div class="pillar__num">01</div><h3>Centralize</h3><p>Laudos, documentos, checklists, não conformidades e indicadores num sistema só. Acabou a caça em dez planilhas.</p></div>
+      <div class="card pillar reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-activity"/></svg></div><div class="pillar__num">02</div><h3>Visualize</h3><p>Indicadores de qualidade e a saúde da operação em tempo real. O que sai do controle aparece na hora.</p></div>
+      <div class="card pillar reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-bell"/></svg></div><div class="pillar__num">03</div><h3>Antecipe</h3><p>Aviso de calibração vencendo e não conformidade com causa-raiz e plano de ação. Você age antes de virar autuação.</p></div>
+      <div class="card pillar reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-shield-check"/></svg></div><div class="pillar__num">04</div><h3>Decida</h3><p>Dados confiáveis e evidência pronta para auditoria. Você decide pelo que aconteceu de verdade.</p></div>
     </div>
-    <figure class="shot reveal-img" style="max-width:1040px;margin:clamp(44px,5vw,68px) auto 0">
-      <img src="/assets/img/indicadores.webp" width="1280" height="1025" alt="Tela de indicadores da qualidade do SGQ Tech com KPIs, gráficos de não conformidades por origem e metas de qualidade" loading="lazy" decoding="async" />
-    </figure>
+
+    <!-- Carrossel de telas reais do sistema -->
+    <div class="carousel reveal" id="systemCarousel" aria-roledescription="carrossel" aria-label="Telas reais do sistema SGQ Tech">
+      <div class="carousel__viewport">
+        <div class="carousel__track">
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/dash-hero.webp" width="1280" height="1231" alt="Painel da qualidade com indicadores, não conformidades e laudos do período" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/indicadores.webp" width="1280" height="1025" alt="Indicadores de qualidade com gráficos e metas" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/indicadores-manutencao.webp" width="1280" height="1428" alt="Indicadores de manutenção com disponibilidade, MTTR e MTBF" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/indicadores-sgi.webp" width="1280" height="1053" alt="Painel de indicadores do SGI" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/producao.webp" width="1280" height="607" alt="Programação de produção por lote" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/suprimentos.webp" width="1280" height="607" alt="Gestão de suprimentos e fornecedores" loading="lazy" decoding="async" /></figure></div>
+          <div class="carousel__slide"><figure class="carousel__frame"><img src="/assets/img/rastreabilidade-lista.webp" width="1280" height="1267" alt="Exercícios de rastreabilidade de lote" loading="lazy" decoding="async" /></figure></div>
+        </div>
+      </div>
+      <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Tela anterior"><svg><use href="#i-chevron-left"/></svg></button>
+      <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Próxima tela"><svg><use href="#i-chevron-right"/></svg></button>
+      <p class="carousel__cap" id="carouselCap" aria-live="polite">Painel da qualidade</p>
+      <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Selecionar tela"></div>
+    </div>
   </div>
 </section>
 
@@ -297,7 +333,6 @@
 <section class="section section--dark" id="comparacao">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Comparação direta</span>
       <h2>O que muda no dia a dia da sua gestão de qualidade</h2>
     </div>
     <div class="compare">
@@ -321,8 +356,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Rastreabilidade de lote</span>
-      <h2>Do insumo ao cliente, em minutos — não em horas</h2>
-      <p class="lead">Cada lote é rastreado de ponta a ponta. Se um cliente reclamar ou a fiscalização pedir, você reconstrói toda a cadeia — matéria-prima, produção, laudos e destino — sem folhear um único papel.</p>
+      <h2>Do insumo ao cliente em minutos, não em horas</h2>
+      <p class="lead">Cada lote é rastreado de ponta a ponta. Se um cliente reclamar ou a fiscalização pedir, você reconstrói a cadeia inteira (matéria-prima, produção, laudos e destino) sem folhear um papel.</p>
     </div>
 
     <div class="reveal trace-scroll">
@@ -342,7 +377,7 @@
 
         <g font-family="'Geist',sans-serif">
           <!-- nós -->
-          <g class="trace-node"><circle cx="120" cy="80" r="30" fill="#0F2628"/><use href="#i-box" x="104" y="64" width="32" height="32" color="#00A99D"/><text x="120" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Matéria-prima</text></g>
+          <g class="trace-node"><circle cx="120" cy="80" r="30" fill="#0F2628"/><use href="#i-package" x="104" y="64" width="32" height="32" color="#00A99D"/><text x="120" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Matéria-prima</text></g>
           <g class="trace-node"><circle cx="335" cy="80" r="30" fill="#0F2628"/><use href="#i-checklist" x="319" y="64" width="32" height="32" color="#00A99D"/><text x="335" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Recebimento</text></g>
           <g class="trace-node"><circle cx="550" cy="80" r="30" fill="#00665E"/><use href="#i-factory" x="534" y="64" width="32" height="32" color="#F8F8F8"/><text x="550" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Lote de produção</text></g>
           <g class="trace-node"><circle cx="765" cy="80" r="30" fill="#0F2628"/><use href="#i-flask" x="749" y="64" width="32" height="32" color="#00A99D"/><text x="765" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#0F2628">Produto + laudo</text></g>
@@ -360,13 +395,16 @@
     </div>
 
     <div class="media-2col" style="margin-top:clamp(32px,4vw,52px)">
-      <div class="trace-stats reveal">
-        <div><div class="stat__num" data-count="31">31</div><div class="stat__label">campos rastreados por lote</div></div>
-        <div><div class="stat__num">minutos</div><div class="stat__label">para um recall completo</div></div>
-        <div><div class="stat__num">100%</div><div class="stat__label">da cadeia auditável</div></div>
+      <div>
+        <p class="lead reveal">Cada exercício guarda lote, fornecedor, laudos, aditivos e os clientes que receberam. Quando um problema aparece, o recall sai em minutos, com tudo documentado.</p>
+        <div class="trace-stats trace-stats--stack reveal" data-delay="1">
+          <div><div class="stat__num" data-count="31">31</div><div class="stat__label">campos rastreados por lote</div></div>
+          <div><div class="stat__num">minutos</div><div class="stat__label">para um recall completo</div></div>
+          <div><div class="stat__num">100%</div><div class="stat__label">da cadeia auditável</div></div>
+        </div>
       </div>
-      <figure class="shot reveal-img">
-        <img src="/assets/img/rastreabilidade.webp" width="1280" height="1267" alt="Tela de exercícios de rastreabilidade do SGQ Tech mostrando o detalhe de um lote com recall preventivo aberto e desvio tratado via não conformidade" loading="lazy" decoding="async" />
+      <figure class="shot reveal-img" id="rastShot" style="max-width:430px;margin-inline:auto">
+        <img src="/assets/img/rastreab-exercicio.webp" width="579" height="814" alt="Detalhe de um exercício de rastreabilidade no SGQ Tech: lote de sal granulado, clientes afetados, laudos e aditivos, com recall iniciado" loading="lazy" decoding="async" />
       </figure>
     </div>
   </div>
@@ -375,40 +413,40 @@
 <!-- ════════════════════════ NC & ANTECIPAÇÃO ════════════════════════ -->
 <section class="section section--white" id="nao-conformidade">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Não conformidade &amp; antecipação</span>
-      <h2>Gestão de não conformidade com causa-raiz e plano de ação</h2>
-      <p class="lead">Registrar o problema é o mínimo. A SGQ Tech leva você até a causa e garante que a ação aconteça — com responsável, prazo e status.</p>
-    </div>
-
-    <!-- Produto real (lista de NC) + mockup animado do ciclo, lado a lado -->
-    <div class="media-2col" style="margin-bottom:clamp(36px,4vw,52px)">
-      <div class="nc-mock reveal" id="ncMock" role="img" aria-label="Ciclo de uma não conformidade no sistema: de Aberta para Em ação e então Resolvida, com causa-raiz e plano de ação">
-        <div class="nc-mock__head">
-          <span class="nc-mock__tag">NC-2026-014</span>
-          <span class="nc-mock__title">Desvio de umidade no lote L-2406</span>
-        </div>
-        <div class="nc-mock__steps">
-          <div class="nc-step is-active" data-i="1"><span class="nc-step__dot"></span> Aberta</div>
-          <div class="nc-step" data-i="2"><span class="nc-step__dot"></span> Em ação</div>
-          <div class="nc-step" data-i="3"><span class="nc-step__dot"></span> Resolvida</div>
-        </div>
-        <div class="nc-mock__bar"><div class="nc-mock__fill"></div></div>
-        <div class="nc-mock__foot">
-          <span class="nc-mock__meta">Causa-raiz: 5 Porquês · Plano de ação com prazo</span>
-          <span class="nc-mock__status" id="ncStatus">Aberta</span>
+    <div class="hero__grid" style="margin-bottom:clamp(40px,5vw,60px)">
+      <div class="hero__content">
+        <span class="eyebrow reveal">Não conformidade</span>
+        <h2 class="reveal" data-delay="1">Gestão de não conformidade com causa-raiz e plano de ação</h2>
+        <p class="lead reveal" data-delay="2">Registrar o problema é o mínimo. A SGQ Tech leva você até a causa e garante que a ação aconteça, com responsável, prazo e status.</p>
+        <div class="nc-mock reveal" id="ncMock" data-delay="2" style="margin:24px 0 0" role="img" aria-label="Ciclo de uma não conformidade no sistema: de Aberta para Em ação e então Resolvida">
+          <div class="nc-mock__head">
+            <span class="nc-mock__tag">NC-2026-014</span>
+            <span class="nc-mock__title">Desvio de umidade no lote L-2406</span>
+          </div>
+          <div class="nc-mock__steps">
+            <div class="nc-step is-active" data-i="1"><span class="nc-step__dot"></span> Aberta</div>
+            <div class="nc-step" data-i="2"><span class="nc-step__dot"></span> Em ação</div>
+            <div class="nc-step" data-i="3"><span class="nc-step__dot"></span> Resolvida</div>
+          </div>
+          <div class="nc-mock__bar"><div class="nc-mock__fill"></div></div>
+          <div class="nc-mock__foot">
+            <span class="nc-mock__meta">Causa-raiz: 5 Porquês · Plano de ação com prazo</span>
+            <span class="nc-mock__status" id="ncStatus">Aberta</span>
+          </div>
         </div>
       </div>
-      <figure class="shot reveal-img">
-        <img src="/assets/img/nc-lista.webp" width="1120" height="1300" alt="Lista de não conformidades no SGQ Tech com código, tipo, classificação, status e responsável de cada NC" loading="lazy" decoding="async" />
-      </figure>
+      <div class="hero__visual reveal" data-delay="2">
+        <figure class="shot" style="max-width:430px;margin-inline:auto">
+          <img src="/assets/img/nc-lista.webp" width="1120" height="1300" alt="Lista de não conformidades no SGQ Tech com código, tipo, classificação, status e responsável de cada NC" loading="lazy" decoding="async" />
+        </figure>
+      </div>
     </div>
 
     <div class="grid cols-4">
-      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-radar"/></svg></div><h3>Causa-raiz</h3><p>5 Porquês e Ishikawa para chegar na origem, não só no sintoma.</p></div>
-      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-task"/></svg></div><h3>Plano de ação</h3><p>Cada ação com responsável, prazo e acompanhamento até concluir.</p></div>
-      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-clock"/></svg></div><h3>Calibração com alerta</h3><p>Instrumentos com data de vencimento e aviso automático antes de vencer.</p></div>
-      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-shield"/></svg></div><h3>Auditoria com evidência</h3><p>Foto, assinatura e histórico anexados — a prova fica pronta o ano todo.</p></div>
+      <div class="card reveal"><div class="icon-badge"><svg><use href="#i-git-branch"/></svg></div><h3>Causa-raiz</h3><p>5 Porquês e Ishikawa para chegar na origem, não só no sintoma.</p></div>
+      <div class="card reveal" data-delay="1"><div class="icon-badge"><svg><use href="#i-list-checks"/></svg></div><h3>Plano de ação</h3><p>Cada ação com responsável, prazo e acompanhamento até concluir.</p></div>
+      <div class="card reveal" data-delay="2"><div class="icon-badge"><svg><use href="#i-activity"/></svg></div><h3>Acompanhamento em tempo real</h3><p>Veja cada NC andar de Aberta a Resolvida sem precisar cobrar status por e-mail.</p></div>
+      <div class="card reveal" data-delay="3"><div class="icon-badge"><svg><use href="#i-clipboard-check"/></svg></div><h3>Auditoria com evidência</h3><p>Foto, assinatura e histórico anexados. A prova fica pronta o ano todo.</p></div>
     </div>
   </div>
 </section>
@@ -416,18 +454,17 @@
 <!-- ════════════════════════ CERTIFICAÇÕES ════════════════════════ -->
 <section class="section section--tint" id="certificacoes">
   <div class="container">
-    <div class="section-head section-head--center reveal">
-      <span class="eyebrow">Conformidade normativa</span>
+    <div class="section-head section-head--center section-head--tight reveal">
       <h2>Pronto para APPCC, ISO 22000, FSSC 22000 e IFS</h2>
       <p class="lead">A SGQ Tech organiza POPs, registros e evidências no formato que as principais normas da indústria de alimentos exigem.</p>
     </div>
     <div class="grid cols-3">
-      <div class="cert reveal"><div class="cert__mark"><svg><use href="#i-shield"/></svg></div><div><div class="cert__name">APPCC / HACCP</div><div class="cert__desc">Pontos críticos e monitoramento</div></div></div>
-      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">ISO 22000</div><div class="cert__desc">Gestão de segurança de alimentos</div></div></div>
-      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">FSSC 22000 v6</div><div class="cert__desc">Esquema reconhecido pela GFSI</div></div></div>
+      <div class="cert reveal"><div class="cert__mark"><svg><use href="#i-shield-check"/></svg></div><div><div class="cert__name">APPCC / HACCP</div><div class="cert__desc">Pontos críticos e monitoramento</div></div></div>
+      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-badge-check"/></svg></div><div><div class="cert__name">ISO 22000</div><div class="cert__desc">Gestão de segurança de alimentos</div></div></div>
+      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-badge-check"/></svg></div><div><div class="cert__name">FSSC 22000 v6</div><div class="cert__desc">Esquema reconhecido pela GFSI</div></div></div>
       <div class="cert reveal"><div class="cert__mark"><svg><use href="#i-award"/></svg></div><div><div class="cert__name">IFS Food / BRCGS</div><div class="cert__desc">Exigência de grandes varejos</div></div></div>
-      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-doc"/></svg></div><div><div class="cert__name">BPF / RDC ANVISA</div><div class="cert__desc">Boas práticas de fabricação</div></div></div>
-      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-check"/></svg></div><div><div class="cert__name">MAPA / Pró-Iodo</div><div class="cert__desc">Exigências setoriais específicas</div></div></div>
+      <div class="cert reveal" data-delay="1"><div class="cert__mark"><svg><use href="#i-shield"/></svg></div><div><div class="cert__name">BPF / RDC ANVISA</div><div class="cert__desc">Boas práticas de fabricação</div></div></div>
+      <div class="cert reveal" data-delay="2"><div class="cert__mark"><svg><use href="#i-badge-check"/></svg></div><div><div class="cert__name">MAPA / Pró-Iodo</div><div class="cert__desc">Exigências setoriais específicas</div></div></div>
     </div>
   </div>
 </section>
@@ -441,7 +478,7 @@
         <h2 class="reveal" data-delay="1">O laudo que chega pronto para o seu produto</h2>
         <p class="lead reveal" data-delay="2">Nada de montar planilha do zero. O template do seu produto já vem configurado com os parâmetros e os limites. O técnico só digita o valor.</p>
         <ul class="persona ul reveal" data-delay="2" style="margin-top:8px">
-          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Verde aprova, vermelho reprova — sem cálculo manual</li>
+          <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Verde aprova, vermelho reprova, sem cálculo manual</li>
           <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Numeração sequencial por cliente e ano (ex.: 0001-25/2026)</li>
           <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> PDF no padrão visual da <strong style="color:var(--paper)">sua</strong> empresa, não do sistema</li>
           <li style="display:flex;gap:10px;color:var(--muted-dark);padding:7px 0"><svg width="18" height="18" style="color:var(--teal);flex-shrink:0;margin-top:3px"><use href="#i-check"/></svg> Histórico completo e pronto para auditoria</li>
@@ -451,9 +488,15 @@
         </div>
       </div>
       <div class="hero__visual reveal" data-delay="2">
-        <figure class="shot" style="max-width:430px;margin-inline:auto">
-          <img src="/assets/img/laudo.webp" width="1000" height="1415" alt="Laudo técnico em PDF gerado pelo SGQ Tech: certificado de qualidade de sal grosso com parâmetros químicos, físicos, metais pesados e microbiológicos, todos aprovados" loading="lazy" decoding="async" />
-        </figure>
+        <div class="laudo-reader" id="laudoReader" role="img" aria-label="Laudo técnico em PDF gerado pelo SGQ Tech: certificado de qualidade de sal grosso com parâmetros químicos, físicos, metais pesados e microbiológicos, todos aprovados">
+          <div class="laudo-reader__scroll" id="laudoScroll">
+            <div class="laudo-reader__strip" id="laudoStrip">
+              <img src="/assets/img/laudo-p1.webp" width="900" height="1274" alt="" loading="lazy" decoding="async" />
+              <img src="/assets/img/laudo-p2.webp" width="900" height="1274" alt="" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <span class="laudo-reader__hint">role para folhear</span>
+        </div>
       </div>
     </div>
   </div>
@@ -467,14 +510,14 @@
       <h2>7 sinais de que sua indústria precisa de um SGQ agora</h2>
       <p class="lead">Se você se reconhece em pelo menos um destes, o risco já está rodando na sua operação.</p>
     </div>
-    <div class="grid cols-2">
-      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-alert"/></svg></div><div><h3>1. Veio uma fiscalização — e a papelada está espalhada</h3><p>ANVISA ou MAPA bateram à porta e reunir as evidências virou correria.</p></div></div>
-      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-doc"/></svg></div><div><h3>2. Um cliente passou a exigir laudo por lote</h3><p>O comprador agora pede laudo técnico a cada entrega — e o seu é feito à mão.</p></div></div>
-      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-award"/></svg></div><div><h3>3. Você vai iniciar FSSC 22000 ou ISO 22000</h3><p>A certificação exige registros e rastreabilidade que a planilha não sustenta.</p></div></div>
-      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-user-x"/></svg></div><div><h3>4. Trocou o responsável técnico</h3><p>O conhecimento foi embora junto e ninguém mais sabe onde está cada coisa.</p></div></div>
-      <div class="trigger reveal"><div class="trigger__icon"><svg><use href="#i-globe"/></svg></div><div><h3>5. Vai começar a exportar</h3><p>O mercado externo exige rastreabilidade auditável de ponta a ponta.</p></div></div>
-      <div class="trigger reveal" data-delay="1"><div class="trigger__icon"><svg><use href="#i-rotate"/></svg></div><div><h3>6. Teve (ou quase teve) um recall</h3><p>Rastrear o lote levou horas — e podia ter levado minutos.</p></div></div>
-      <div class="trigger reveal" style="grid-column:1/-1;max-width:none"><div class="trigger__icon"><svg><use href="#i-table"/></svg></div><div><h3>7. A qualidade inteira depende de uma planilha de Excel</h3><p>Uma fórmula errada, um arquivo sobrescrito, um backup que não existe — e o risco vira autuação.</p></div></div>
+    <div class="signals" id="signals">
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-gavel"/></svg></span><span class="signal__n">Sinal 01</span></div><h3>Veio uma fiscalização e a papelada está espalhada</h3><p>ANVISA ou MAPA bateram à porta e reunir as evidências virou correria.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-file-check"/></svg></span><span class="signal__n">Sinal 02</span></div><h3>Um cliente passou a exigir laudo por lote</h3><p>O comprador agora pede laudo técnico a cada entrega, e o seu é feito à mão.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-award"/></svg></span><span class="signal__n">Sinal 03</span></div><h3>Você vai iniciar FSSC 22000 ou ISO 22000</h3><p>A certificação exige registros e rastreabilidade que a planilha não sustenta.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-user-minus"/></svg></span><span class="signal__n">Sinal 04</span></div><h3>Trocou o responsável técnico</h3><p>O conhecimento foi embora junto e ninguém mais sabe onde está cada coisa.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-ship"/></svg></span><span class="signal__n">Sinal 05</span></div><h3>Vai começar a exportar</h3><p>O mercado externo exige rastreabilidade auditável de ponta a ponta.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-siren"/></svg></span><span class="signal__n">Sinal 06</span></div><h3>Teve ou quase teve um recall</h3><p>Rastrear o lote levou horas. Podia ter levado minutos.</p></div></div>
+      <div class="signal"><span class="signal__dot"></span><div class="signal__card"><div class="signal__head"><span class="signal__ico"><svg><use href="#i-file-spreadsheet"/></svg></span><span class="signal__n">Sinal 07</span></div><h3>A qualidade inteira depende de uma planilha de Excel</h3><p>Uma fórmula errada, um arquivo sobrescrito, um backup que não existe: o risco vira autuação.</p></div></div>
     </div>
     <div class="center mt-l reveal">
       <a href="#calculadora" class="btn btn--ghost btn--lg">Quantos sinais você tem? Calcule seu risco <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
@@ -485,25 +528,26 @@
 <!-- ════════════════════════ MÓDULOS ════════════════════════ -->
 <section class="section section--tint" id="modulos">
   <div class="container">
-    <div class="section-head section-head--center reveal">
+    <div class="section-head section-head--center section-head--tight reveal">
       <span class="eyebrow">Plataforma completa</span>
       <h2>Muito além da qualidade: um sistema para a operação inteira</h2>
-      <p class="lead">Comece pela qualidade e cresça conforme a necessidade. Tudo no mesmo sistema, sem integrações frágeis.</p>
+      <p class="lead">Comece pela qualidade e cresça conforme a necessidade. Tudo no mesmo sistema, sem integração frágil.</p>
     </div>
     <div class="grid cols-3">
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-shield"/></svg></div><div><strong>Qualidade (SGQ)</strong><span>BPF, APPCC, POPs e auditoria</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-flask"/></svg></div><div><strong>Laudos técnicos</strong><span>Template pronto e aprovação automática</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-shield-check"/></svg></div><div><strong>Qualidade (SGQ)</strong><span>BPF, APPCC, POPs e auditoria</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-file-check"/></svg></div><div><strong>Laudos técnicos</strong><span>Template pronto e aprovação automática</span></div></div>
       <div class="module reveal"><div class="module__icon"><svg><use href="#i-route"/></svg></div><div><strong>Rastreabilidade</strong><span>Lote do insumo ao cliente</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-alert"/></svg></div><div><strong>Não conformidade</strong><span>Causa-raiz e plano de ação</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-doc"/></svg></div><div><strong>Documentos</strong><span>Controle de versão e validade</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-shield-alert"/></svg></div><div><strong>Não conformidade &amp; CAPA</strong><span>Causa-raiz e plano de ação</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-folder"/></svg></div><div><strong>Documentos</strong><span>Controle de versão e validade</span></div></div>
       <div class="module reveal"><div class="module__icon"><svg><use href="#i-checklist"/></svg></div><div><strong>Checklists</strong><span>Digitais, com foto e offline</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-gauge"/></svg></div><div><strong>Indicadores</strong><span>KPIs e health score em tempo real</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-wrench"/></svg></div><div><strong>Manutenção &amp; Calibração</strong><span>OS, PMP e alerta de vencimento</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-task"/></svg></div><div><strong>Tarefas</strong><span>Responsável, prazo e acompanhamento</span></div></div>
-      <div class="module reveal"><div class="module__icon"><svg><use href="#i-box"/></svg></div><div><strong>Suprimentos &amp; Almoxarifado</strong><span>Estoque e entrada de insumos</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-bar-chart"/></svg></div><div><strong>Indicadores</strong><span>KPIs e saúde da operação em tempo real</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-wrench"/></svg></div><div><strong>Manutenção &amp; Calibração</strong><span>OS, plano e alerta de vencimento</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-kanban"/></svg></div><div><strong>Tarefas</strong><span>Responsável, prazo e acompanhamento</span></div></div>
+      <div class="module reveal"><div class="module__icon"><svg><use href="#i-package"/></svg></div><div><strong>Suprimentos &amp; Almoxarifado</strong><span>Estoque e entrada de insumos</span></div></div>
       <div class="module reveal"><div class="module__icon"><svg><use href="#i-factory"/></svg></div><div><strong>Produção</strong><span>Ordens e apontamento por lote</span></div></div>
       <div class="module reveal"><div class="module__icon"><svg><use href="#i-hardhat"/></svg></div><div><strong>SST &amp; Crises</strong><span>Segurança do trabalho e contingência</span></div></div>
     </div>
+    <p class="lead reveal center mt-m" style="max-width:640px;margin-inline:auto">Você liga só o que precisa hoje e cresce sem trocar de sistema.</p>
   </div>
 </section>
 
@@ -511,27 +555,26 @@
 <section class="section section--white" id="para-quem">
   <div class="container">
     <div class="section-head section-head--center reveal">
-      <span class="eyebrow">Para quem é</span>
-      <h2>Feito para quem vive a qualidade — do chão de fábrica à diretoria</h2>
+      <h2>Feito para quem vive a qualidade, do chão de fábrica à diretoria</h2>
     </div>
     <div class="grid cols-4">
       <div class="card persona reveal">
-        <div class="persona__photo"><img src="/assets/img/persona-dono.webp" width="760" height="943" alt="Diretor industrial em pé no chão de fábrica" loading="lazy" decoding="async" /></div>
+        <div class="persona__photo"><img src="/assets/img/pessoa-dono.webp" width="760" height="943" alt="Diretor industrial no chão de fábrica" loading="lazy" decoding="async" /></div>
         <div class="persona__role">Diretor / Dono</div><h3>Dorme tranquilo</h3>
-        <ul><li><svg><use href="#i-check"/></svg> Risco regulatório sob controle</li><li><svg><use href="#i-check"/></svg> Visão da operação num painel</li><li><svg><use href="#i-check"/></svg> Menos dependência de pessoas-chave</li></ul>
+        <ul><li><svg><use href="#i-check"/></svg> Risco regulatório sob controle</li><li><svg><use href="#i-check"/></svg> A operação inteira num painel</li><li><svg><use href="#i-check"/></svg> Menos dependência de pessoa-chave</li></ul>
       </div>
       <div class="card persona reveal" data-delay="1">
-        <div class="persona__photo"><img src="/assets/img/persona-qualidade.webp" width="760" height="943" alt="Responsável da qualidade em ambiente de produção de alimentos" loading="lazy" decoding="async" /></div>
+        <div class="persona__photo"><img src="/assets/img/pessoa-analista.webp" width="760" height="943" alt="Analista de qualidade com tablet em laboratório" loading="lazy" decoding="async" /></div>
         <div class="persona__role">Responsável da Qualidade</div><h3>Sai do apagar incêndio</h3>
         <ul><li><svg><use href="#i-check"/></svg> Auditoria sempre pronta</li><li><svg><use href="#i-check"/></svg> NC com causa-raiz e ação</li><li><svg><use href="#i-check"/></svg> Tudo num lugar só</li></ul>
       </div>
       <div class="card persona reveal" data-delay="2">
-        <div class="persona__photo"><img src="/assets/img/persona-tecnico.webp" width="760" height="943" alt="Técnica de laboratório com tablet em laboratório de análises" loading="lazy" decoding="async" /></div>
+        <div class="persona__photo"><img src="/assets/img/pessoa-atuando.webp" width="1100" height="614" alt="Técnica na linha de produção de alimentos com tablet" loading="lazy" decoding="async" style="object-position:35% center" /></div>
         <div class="persona__role">Técnico de laboratório</div><h3>Só digita o valor</h3>
         <ul><li><svg><use href="#i-check"/></svg> Sem cálculo manual de laudo</li><li><svg><use href="#i-check"/></svg> Verde aprova, vermelho reprova</li><li><svg><use href="#i-check"/></svg> Checklist no tablet, com foto</li></ul>
       </div>
       <div class="card persona reveal" data-delay="3">
-        <div class="persona__photo"><img src="/assets/img/persona-auditor.webp" width="1100" height="614" alt="Auditora inspecionando a linha de produção de alimentos com tablet" loading="lazy" decoding="async" style="object-position:32% center" /></div>
+        <div class="persona__photo"><img src="/assets/img/pessoa-consultora.webp" width="760" height="943" alt="Consultora em ambiente de produção de alimentos" loading="lazy" decoding="async" /></div>
         <div class="persona__role">Consultor / Auditor</div><h3>Evidência na hora</h3>
         <ul><li><svg><use href="#i-check"/></svg> Registros organizados e datados</li><li><svg><use href="#i-check"/></svg> Rastreabilidade comprovável</li><li><svg><use href="#i-check"/></svg> Implantação mais rápida</li></ul>
       </div>
@@ -572,20 +615,20 @@
 <!-- ════════════════════════ PLANOS ════════════════════════ -->
 <section class="section section--tint" id="planos">
   <div class="container">
-    <div class="section-head section-head--center reveal">
-      <span class="eyebrow">Planos</span>
-      <h2>Um plano por porte — preço fixo, sem cobrança por usuário</h2>
+    <div class="section-head section-head--center section-head--tight reveal">
+      <h2>Um plano por porte, preço fixo e sem cobrança por usuário</h2>
       <p class="lead">Você paga pelo tamanho da sua operação, não por cabeça nem por módulo. O plano ideal a gente define junto na demonstração.</p>
     </div>
     <div class="grid cols-4 plans">
       <div class="plan reveal">
         <div class="plan__name">Base</div>
-        <p class="plan__for">Para quem precisa colocar a qualidade no lugar.</p>
+        <p class="plan__for">Sua qualidade organizada e medida. Para a pequena indústria começando a estruturar, rumo à ISO 9001.</p>
         <div class="plan__meta"><div><strong>até 10</strong>usuários</div><div><strong>10 GB</strong>de arquivos</div></div>
         <ul class="plan__features">
-          <li><svg><use href="#i-check"/></svg> Qualidade core (BPF/APPCC)</li>
-          <li><svg><use href="#i-check"/></svg> Documentos e checklists</li>
-          <li><svg><use href="#i-check"/></svg> Indicadores essenciais</li>
+          <li><svg><use href="#i-check"/></svg> Documento certo, na versão certa, sempre</li>
+          <li><svg><use href="#i-check"/></svg> NC com causa-raiz e plano de ação</li>
+          <li><svg><use href="#i-check"/></svg> Checklists digitais, com foto e offline</li>
+          <li><svg><use href="#i-check"/></svg> Indicadores e tarefas sob controle</li>
         </ul>
         <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
         <a href="#agendar" class="btn btn--ghost btn--block">Agendar demonstração</a>
@@ -593,40 +636,140 @@
       <div class="plan plan--featured reveal" data-delay="1">
         <span class="plan__flag">Mais escolhido</span>
         <div class="plan__name">Profissional</div>
-        <p class="plan__for">Para a indústria que já vende e precisa escalar a gestão.</p>
-        <div class="plan__meta"><div><strong>até 40</strong>usuários</div><div><strong>30 GB</strong>de arquivos</div></div>
+        <p class="plan__for">Qualidade completa, laudo e operação no mesmo lugar. Para quem já vende e precisa integrar tudo.</p>
+        <div class="plan__meta"><div><strong>até 30</strong>usuários</div><div><strong>30 GB</strong>de arquivos</div></div>
         <ul class="plan__features">
           <li><svg><use href="#i-check"/></svg> Tudo do Base</li>
-          <li><svg><use href="#i-check"/></svg> Manutenção e calibração</li>
-          <li><svg><use href="#i-check"/></svg> Suprimentos, RH e comercial</li>
+          <li><svg><use href="#i-check"/></svg> Laudo técnico com aprovação automática</li>
+          <li><svg><use href="#i-check"/></svg> Auditoria, recall e gestão de riscos</li>
+          <li><svg><use href="#i-check"/></svg> Manutenção, suprimentos, RH e comercial</li>
         </ul>
         <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
         <a href="#agendar" class="btn btn--primary btn--block">Agendar demonstração</a>
       </div>
       <div class="plan reveal" data-delay="2">
         <div class="plan__name">Plus</div>
-        <p class="plan__for">Para operações com produção e múltiplos setores.</p>
-        <div class="plan__meta"><div><strong>até 80</strong>usuários</div><div><strong>60 GB</strong>de arquivos</div></div>
+        <p class="plan__for">Rastreabilidade e crise de ponta a ponta. Para mercado regulado (ANVISA, FSSC) com produção.</p>
+        <div class="plan__meta"><div><strong>até 50</strong>usuários</div><div><strong>60 GB</strong>de arquivos</div></div>
         <ul class="plan__features">
           <li><svg><use href="#i-check"/></svg> Tudo do Profissional</li>
-          <li><svg><use href="#i-check"/></svg> Produção e almoxarifado</li>
+          <li><svg><use href="#i-check"/></svg> Produção e almoxarifado por lote</li>
           <li><svg><use href="#i-check"/></svg> SST e gestão de crises</li>
+          <li><svg><use href="#i-check"/></svg> Pronto para FSSC, IFS e exportação</li>
         </ul>
         <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
         <a href="#agendar" class="btn btn--ghost btn--block">Agendar demonstração</a>
       </div>
       <div class="plan reveal" data-delay="3">
         <div class="plan__name">Enterprise</div>
-        <p class="plan__for">Para grandes operações que precisam de tudo.</p>
-        <div class="plan__meta"><div><strong>150+</strong>usuários</div><div><strong>sob medida</strong></div></div>
+        <p class="plan__for">Feito sob medida para a sua operação. Para o grupo cujo processo não cabe em caixinha padrão.</p>
+        <div class="plan__meta"><div><strong>50+</strong>usuários</div><div><strong>100 GB</strong>de arquivos</div></div>
         <ul class="plan__features">
-          <li><svg><use href="#i-check"/></svg> Todos os módulos</li>
-          <li><svg><use href="#i-check"/></svg> Acesso via API</li>
-          <li><svg><use href="#i-check"/></svg> White-label</li>
+          <li><svg><use href="#i-check"/></svg> Laudo e fluxos desenhados do zero</li>
+          <li><svg><use href="#i-check"/></svg> Integração nativa com o seu ERP (API)</li>
+          <li><svg><use href="#i-check"/></svg> Relatórios com inteligência artificial</li>
+          <li><svg><use href="#i-check"/></svg> Suporte prioritário e gestor de conta</li>
         </ul>
         <div class="plan__price-note">Preço sob proposta · venda consultiva</div>
         <a href="#agendar" class="btn btn--ghost btn--block">Falar com vendas</a>
       </div>
+    </div>
+
+    <!-- Matriz comparativa de módulos por plano -->
+    <div class="matrix reveal" id="planMatrix">
+      <div class="matrix__table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="matrix__feat">O que você conquista em cada plano</th>
+              <th>Base<small>qualidade no lugar</small></th>
+              <th class="is-rec">Profissional<small>qualidade + operação</small></th>
+              <th>Plus<small>+ produção e crise</small></th>
+              <th>Enterprise<small>tudo, sob medida</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="matrix__group"><td colspan="5">Qualidade &amp; Conformidade</td></tr>
+            <tr><td class="matrix__feat">SGI (gestão integrada)</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Qualidade (BPF, APPCC, POPs)</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Documentos</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Checklists</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Indicadores</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Laudos técnicos</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Rastreabilidade de lote</td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr class="matrix__group"><td colspan="5">Operação</td></tr>
+            <tr><td class="matrix__feat">Manutenção &amp; Calibração</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Projetos</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Suprimentos</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">RH</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Comercial</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Tarefas</td><td><span class="no">—</span></td><td class="is-rec"><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr class="matrix__group"><td colspan="5">Industrial avançado</td></tr>
+            <tr><td class="matrix__feat">Produção</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Almoxarifado</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">SST</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Gestão de crises</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Ambiental (beta)</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr class="matrix__group"><td colspan="5">Plataforma</td></tr>
+            <tr><td class="matrix__feat">Usuários</td><td>até 10</td><td class="is-rec">até 30</td><td>até 50</td><td>50+</td></tr>
+            <tr><td class="matrix__feat">Armazenamento</td><td>10 GB</td><td class="is-rec">30 GB</td><td>60 GB</td><td>100 GB</td></tr>
+            <tr><td class="matrix__feat">Acesso via API</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">White-label</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr class="matrix__group"><td colspan="5">Personalização &amp; atendimento</td></tr>
+            <tr><td class="matrix__feat">Laudo e templates desenhados do zero</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Campos, etapas e fluxos sob medida</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Integração nativa com o seu ERP</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Relatórios com inteligência artificial</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+            <tr><td class="matrix__feat">Suporte prioritário e gestor de conta</td><td><span class="no">—</span></td><td class="is-rec"><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes"><svg width="18" height="18"><use href="#i-check"/></svg></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- mobile: abas por plano -->
+      <div class="matrix__tabs">
+        <button class="matrix__tab is-active" type="button" data-plan="0">Base</button>
+        <button class="matrix__tab" type="button" data-plan="1">Profissional</button>
+        <button class="matrix__tab" type="button" data-plan="2">Plus</button>
+        <button class="matrix__tab" type="button" data-plan="3">Enterprise</button>
+      </div>
+      <ul class="matrix__panel is-active" data-plan="0">
+        <li class="grp">Qualidade &amp; Conformidade</li>
+        <li><svg><use href="#i-check"/></svg> SGI e Qualidade (BPF, APPCC, POPs)</li>
+        <li><svg><use href="#i-check"/></svg> Documentos, checklists e indicadores</li>
+        <li><svg><use href="#i-check"/></svg> Laudos técnicos e rastreabilidade</li>
+        <li class="grp">Plataforma</li>
+        <li><svg><use href="#i-check"/></svg> Até 10 usuários, 10 GB</li>
+        <li class="off">Operação e industrial avançado nos planos acima</li>
+      </ul>
+      <ul class="matrix__panel" data-plan="1">
+        <li class="grp">Qualidade &amp; Conformidade</li>
+        <li><svg><use href="#i-check"/></svg> Tudo da qualidade (laudos, rastreabilidade, indicadores)</li>
+        <li class="grp">Operação</li>
+        <li><svg><use href="#i-check"/></svg> Manutenção e calibração</li>
+        <li><svg><use href="#i-check"/></svg> Suprimentos, RH e comercial</li>
+        <li><svg><use href="#i-check"/></svg> Projetos e tarefas</li>
+        <li class="grp">Plataforma</li>
+        <li><svg><use href="#i-check"/></svg> Até 30 usuários, 30 GB</li>
+      </ul>
+      <ul class="matrix__panel" data-plan="2">
+        <li class="grp">Qualidade + Operação</li>
+        <li><svg><use href="#i-check"/></svg> Tudo do Profissional</li>
+        <li class="grp">Industrial avançado</li>
+        <li><svg><use href="#i-check"/></svg> Produção e almoxarifado</li>
+        <li><svg><use href="#i-check"/></svg> SST, crises e ambiental (beta)</li>
+        <li class="grp">Plataforma</li>
+        <li><svg><use href="#i-check"/></svg> Até 50 usuários, 60 GB</li>
+      </ul>
+      <ul class="matrix__panel" data-plan="3">
+        <li class="grp">Tudo incluído</li>
+        <li><svg><use href="#i-check"/></svg> Todos os módulos das demais faixas</li>
+        <li class="grp">Sob medida (só no Enterprise)</li>
+        <li><svg><use href="#i-check"/></svg> Laudo e fluxos desenhados do zero</li>
+        <li><svg><use href="#i-check"/></svg> Integração nativa com o seu ERP (API)</li>
+        <li><svg><use href="#i-check"/></svg> Relatórios com IA e white-label</li>
+        <li><svg><use href="#i-check"/></svg> Suporte prioritário e gestor de conta</li>
+        <li class="grp">Plataforma</li>
+        <li><svg><use href="#i-check"/></svg> 50+ usuários, 100 GB de armazenamento</li>
+      </ul>
     </div>
 
     <!-- Programa Fundadores -->
@@ -636,7 +779,7 @@
         <div>
           <span class="founders__badge"><span class="founders__pulse" id="foundersPulse"></span> Programa Fundadores · vagas limitadas</span>
           <h3>Seja uma das primeiras indústrias a entrar</h3>
-          <p>Quem entra agora garante condição especial de fundador e ajuda a moldar o produto. São poucas vagas — e elas não voltam depois do lançamento.</p>
+          <p>Quem entra agora garante condição especial de fundador e ajuda a moldar o produto. São poucas vagas, e elas não voltam depois do lançamento.</p>
         </div>
         <a href="#agendar" class="btn btn--white btn--lg">Quero minha vaga <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
       </div>
@@ -710,85 +853,54 @@
     <div class="section-head section-head--center reveal">
       <span class="eyebrow">Diagnóstico gratuito · 1 minuto</span>
       <h2>Calcule o risco invisível da sua operação</h2>
-      <p class="lead">Seis perguntas rápidas para medir o quanto a sua gestão de qualidade está exposta. No fim, você recebe seu índice de risco.</p>
+      <p class="lead">Sete perguntas de sim ou não. Cada sim acende um sinal de risco. No fim você recebe seu diagnóstico.</p>
     </div>
 
     <div class="calc-wrap reveal">
       <div class="calc" id="calc">
         <div class="calc__progress"><div class="calc__progress-bar" id="calcBar"></div></div>
         <div class="calc__inner" id="calcInner">
-          <!-- Perguntas (renderizadas estáticas p/ SEO; JS controla a navegação) -->
           <div class="calc__step" data-step="0">
-            <div class="calc__step-label">Pergunta <span class="js-step">1</span> de 6</div>
-            <p class="calc__q">Como vocês emitem os laudos técnicos hoje?</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="laudo" data-val="papel_excel" data-score="100"><span class="dot"></span> No papel ou no Excel, manualmente</button>
-              <button class="calc__opt" data-q="laudo" data-val="word_pdf" data-score="60"><span class="dot"></span> Em Word/PDF, mas conferido à mão</button>
-              <button class="calc__opt" data-q="laudo" data-val="sistema" data-score="0"><span class="dot"></span> Num sistema dedicado, com aprovação automática</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">1</span> de 7</div>
+            <p class="calc__q">Sua qualidade depende de planilhas de Excel ou papel para registros e laudos?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
           <div class="calc__step" data-step="1" hidden>
-            <div class="calc__step-label">Pergunta <span class="js-step">2</span> de 6</div>
-            <p class="calc__q">Se um cliente reclamar de um lote agora, em quanto tempo você rastreia tudo?</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="rastreio" data-val="dias" data-score="100"><span class="dot"></span> Dias — ou talvez nem consiga reconstruir</button>
-              <button class="calc__opt" data-q="rastreio" data-val="horas" data-score="55"><span class="dot"></span> Algumas horas folheando registros</button>
-              <button class="calc__opt" data-q="rastreio" data-val="minutos" data-score="0"><span class="dot"></span> Minutos, com tudo registrado</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">2</span> de 7</div>
+            <p class="calc__q">Você levaria mais de 1 hora para rastrear um lote do insumo até o cliente num recall?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
           <div class="calc__step" data-step="2" hidden>
-            <div class="calc__step-label">Pergunta <span class="js-step">3</span> de 6</div>
-            <p class="calc__q">Seus checklists de BPF / APPCC são…</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="checklist" data-val="papel" data-score="100"><span class="dot"></span> No papel</button>
-              <button class="calc__opt" data-q="checklist" data-val="planilha" data-score="55"><span class="dot"></span> Em planilha</button>
-              <button class="calc__opt" data-q="checklist" data-val="digital" data-score="0"><span class="dot"></span> Digitais, com foto e funcionando offline</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">3</span> de 7</div>
+            <p class="calc__q">Passou (ou pode passar) por fiscalização da ANVISA ou do MAPA nos últimos 12 meses?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
           <div class="calc__step" data-step="3" hidden>
-            <div class="calc__step-label">Pergunta <span class="js-step">4</span> de 6</div>
-            <p class="calc__q">Quando há uma não conformidade, você registra causa-raiz e plano de ação?</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="nc" data-val="nao" data-score="100"><span class="dot"></span> Não, no máximo anotamos o que houve</button>
-              <button class="calc__opt" data-q="nc" data-val="informal" data-score="55"><span class="dot"></span> Às vezes, de forma informal</button>
-              <button class="calc__opt" data-q="nc" data-val="sempre" data-score="0"><span class="dot"></span> Sempre, com método e acompanhamento</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">4</span> de 7</div>
+            <p class="calc__q">Algum cliente passou a exigir laudo por lote ou certificação?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
           <div class="calc__step" data-step="4" hidden>
-            <div class="calc__step-label">Pergunta <span class="js-step">5</span> de 6</div>
-            <p class="calc__q">Seus instrumentos têm controle de calibração com alerta de vencimento?</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="calibracao" data-val="nao" data-score="100"><span class="dot"></span> Não temos controle</button>
-              <button class="calc__opt" data-q="calibracao" data-val="planilha" data-score="55"><span class="dot"></span> Numa planilha que conferimos manualmente</button>
-              <button class="calc__opt" data-q="calibracao" data-val="sistema" data-score="0"><span class="dot"></span> Sistema com alerta automático</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">5</span> de 7</div>
+            <p class="calc__q">Está iniciando (ou pretende) FSSC 22000, ISO 22000, IFS ou exportação?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
           <div class="calc__step" data-step="5" hidden>
-            <div class="calc__step-label">Pergunta <span class="js-step">6</span> de 6</div>
-            <p class="calc__q">Se a ANVISA ou o MAPA aparecessem amanhã, em quanto tempo você reúne todas as evidências?</p>
-            <div class="calc__options">
-              <button class="calc__opt" data-q="auditoria" data-val="nao_pronto" data-score="100"><span class="dot"></span> Não estaríamos prontos</button>
-              <button class="calc__opt" data-q="auditoria" data-val="dias" data-score="55"><span class="dot"></span> Levaria dias de preparação</button>
-              <button class="calc__opt" data-q="auditoria" data-val="minutos" data-score="0"><span class="dot"></span> Está sempre pronto</button>
-            </div>
+            <div class="calc__step-label">Pergunta <span class="js-step">6</span> de 7</div>
+            <p class="calc__q">As não conformidades são tratadas sem causa-raiz, prazo ou responsável definido?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
+          </div>
+          <div class="calc__step" data-step="6" hidden>
+            <div class="calc__step-label">Pergunta <span class="js-step">7</span> de 7</div>
+            <p class="calc__q">Se o responsável técnico saísse amanhã, parte do conhecimento iria embora com ele?</p>
+            <div class="calc__yesno"><button class="calc__yn" data-yes="1">Sim</button><button class="calc__yn" data-yes="0">Não</button></div>
           </div>
 
-          <!-- Resultado -->
-          <div class="calc__step calc__result" data-step="result" hidden>
-            <div class="calc__step-label">Seu resultado</div>
-            <div class="gauge" id="calcGauge" aria-hidden="true">
-              <svg viewBox="0 0 200 110" width="200" height="110">
-                <path d="M10 105 A90 90 0 0 1 190 105" fill="none" stroke="var(--line)" stroke-width="14" stroke-linecap="round"/>
-                <path id="gaugeArc" d="M10 105 A90 90 0 0 1 190 105" fill="none" stroke="var(--teal)" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
-              </svg>
-              <div class="gauge__num" id="calcScore">0</div>
-            </div>
-            <div class="gauge__cap">índice de risco · 0 a 100</div>
-            <div class="risk-band" id="calcBand">—</div>
-            <p id="calcVerdict" style="max-width:460px;margin:6px auto 0;color:var(--muted)"></p>
-
-            <form class="calc__result-form" id="calcForm" novalidate>
-              <p style="font-weight:600;margin-bottom:14px;color:var(--ink)">Receba o diagnóstico completo e veja como reduzir esse risco:</p>
+          <!-- Captura ANTES de revelar o resultado -->
+          <div class="calc__step" data-step="capture" hidden>
+            <div class="calc__step-label">Quase lá</div>
+            <p class="calc__q" style="font-size:clamp(1.15rem,2.2vw,1.4rem)">Para onde enviamos seu diagnóstico?</p>
+            <form class="calc__result-form" id="calcForm" novalidate style="margin-top:6px">
               <div class="field">
                 <label for="cf-name">Nome <span class="req">*</span></label>
                 <input class="input" type="text" id="cf-name" name="name" placeholder="Seu nome" autocomplete="name" required />
@@ -803,9 +915,21 @@
                   <input class="input" type="text" id="cf-company" name="company" placeholder="Nome da indústria" autocomplete="organization" />
                 </div>
               </div>
-              <button type="submit" class="btn btn--primary btn--lg btn--block" id="calcSubmit">Quero meu diagnóstico</button>
-              <p class="form-note">Sem spam. Usamos seus dados só para enviar o diagnóstico e falar com você.</p>
+              <button type="submit" class="btn btn--primary btn--lg btn--block" id="calcSubmit">Ver meu resultado</button>
+              <p class="form-note">Sem spam. Usamos seus dados só para falar com você sobre o diagnóstico.</p>
             </form>
+          </div>
+
+          <!-- Resultado (revelado após a captura) -->
+          <div class="calc__step calc__result" data-step="result" hidden>
+            <div class="calc__step-label">Seu resultado</div>
+            <div class="calc__score-big"><span id="calcScore">0</span><span class="calc__score-of">de 7 sinais de risco</span></div>
+            <div class="risk-band" id="calcBand">—</div>
+            <p id="calcVerdict" style="max-width:480px;margin:8px auto 0;color:var(--muted)"></p>
+            <div class="btn-row mt-m" style="justify-content:center">
+              <a href="#agendar" class="btn btn--primary btn--lg">Agendar demonstração <svg width="18" height="18"><use href="#i-arrow-right"/></svg></a>
+              <a href="https://wa.me/5584988504395?text=Ol%C3%A1%2C%20fiz%20o%20diagn%C3%B3stico%20de%20risco%20no%20site%20e%20quero%20falar%20com%20voc%C3%AAs" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Falar no WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>
@@ -827,15 +951,15 @@
       </details>
       <details class="faq-item">
         <summary>A SGQ Tech ajuda na certificação APPCC, ISO 22000, FSSC 22000 e IFS? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-item__body">Sim. A plataforma organiza POPs, checklists com foto, registros de não conformidade, calibração e evidências de auditoria no formato que essas normas exigem — incluindo APPCC/HACCP, ISO 22000, FSSC 22000 v6 e IFS Food/BRCGS, além de BPF, RDC da ANVISA e exigências do MAPA.</div>
+        <div class="faq-item__body">Sim. A plataforma organiza POPs, checklists com foto, registros de não conformidade, calibração e evidências de auditoria no formato que essas normas exigem, incluindo APPCC/HACCP, ISO 22000, FSSC 22000 v6 e IFS Food/BRCGS, além de BPF, RDC da ANVISA e exigências do MAPA.</div>
       </details>
       <details class="faq-item">
         <summary>Como funciona a rastreabilidade de lote? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-item__body">Cada lote é rastreado do recebimento do insumo até a entrega ao cliente. Em caso de recall ou reclamação, você localiza em minutos toda a cadeia — matéria-prima, produção, laudos e destino — em vez de horas folheando papel.</div>
+        <div class="faq-item__body">Cada lote é rastreado do recebimento do insumo até a entrega ao cliente. Em caso de recall ou reclamação, você localiza em minutos toda a cadeia (matéria-prima, produção, laudos e destino) em vez de horas folheando papel.</div>
       </details>
       <details class="faq-item">
         <summary>Preciso parar de usar Excel? Como é a migração? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-item__body">Sim — o Excel é grátis até a autuação. A implantação é consultiva: configuramos o sistema com o seu produto, importamos o essencial e treinamos a equipe. O técnico passa a só digitar o valor; o sistema aprova (verde) ou reprova (vermelho) automaticamente.</div>
+        <div class="faq-item__body">Sim. O Excel é grátis até a autuação. A implantação é consultiva: configuramos o sistema com o seu produto, importamos o essencial e treinamos a equipe. O técnico passa a só digitar o valor; o sistema aprova (verde) ou reprova (vermelho) automaticamente.</div>
       </details>
       <details class="faq-item">
         <summary>Para quais segmentos da indústria de alimentos a SGQ Tech serve? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
@@ -847,7 +971,7 @@
       </details>
       <details class="faq-item">
         <summary>Quanto custa a SGQ Tech? <span class="faq-ico"><svg width="22" height="22"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-item__body">São quatro planos por porte de empresa (Base, Profissional, Plus e Enterprise), com preço fixo por faixa — nunca por usuário ou por módulo. O plano ideal é definido em uma demonstração rápida, de acordo com o tamanho e a necessidade da sua operação.</div>
+        <div class="faq-item__body">São quatro planos por porte de empresa (Base, Profissional, Plus e Enterprise), com preço fixo por faixa, nunca por usuário ou por módulo. O plano ideal é definido em uma demonstração rápida, de acordo com o tamanho e a necessidade da sua operação.</div>
       </details>
     </div>
   </div>
@@ -876,7 +1000,7 @@
     <div class="footer-grid">
       <div>
         <a href="#top" class="wordmark"><span class="wordmark__sgq">sgq</span><span class="wordmark__tech">tech</span><span class="wordmark__dot">.</span></a>
-        <p class="footer-about">Software de gestão da qualidade para a indústria de alimentos. Laudo técnico, rastreabilidade de lote, APPCC e não conformidade — já configurado para o seu produto.</p>
+        <p class="footer-about">Software de gestão da qualidade para a indústria de alimentos. Laudo técnico, rastreabilidade de lote, APPCC e não conformidade, já configurado para o seu produto.</p>
       </div>
       <div>
         <h4>Produto</h4>

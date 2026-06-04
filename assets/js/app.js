@@ -153,15 +153,16 @@ function initCalculator() {
   const calc = document.getElementById('calc');
   if (!calc) return;
 
-  const steps = Array.from(calc.querySelectorAll('.calc__step'));
-  const questionSteps = steps.filter((s) => s.dataset.step !== 'result');
+  const qSteps = Array.from(calc.querySelectorAll('.calc__step'))
+    .filter((s) => /^\d+$/.test(s.dataset.step))
+    .sort((a, b) => a.dataset.step - b.dataset.step);
+  const captureStep = calc.querySelector('[data-step="capture"]');
   const resultStep = calc.querySelector('[data-step="result"]');
   const bar = document.getElementById('calcBar');
-  const total = questionSteps.length;
-  const answers = {};
+  const TOTAL = qSteps.length; // 7
+  const answers = new Array(TOTAL).fill(null);
   let current = 0;
 
-  // botão "voltar" injetado (some na 1ª pergunta e no resultado)
   const back = document.createElement('button');
   back.type = 'button';
   back.className = 'calc__back';
@@ -169,96 +170,72 @@ function initCalculator() {
   back.style.marginBottom = '16px';
   back.hidden = true;
   calc.querySelector('.calc__inner').prepend(back);
-  back.addEventListener('click', () => { if (current > 0) show(current - 1); });
 
-  function updateBar() {
-    const pct = Math.round((current / total) * 100);
-    if (bar) bar.style.width = pct + '%';
+  function hideAll() {
+    qSteps.forEach((s) => (s.hidden = true));
+    if (captureStep) captureStep.hidden = true;
+    if (resultStep) resultStep.hidden = true;
   }
-  function show(i) {
-    steps.forEach((s) => (s.hidden = true));
+  function setBar(pct) { if (bar) bar.style.width = pct + '%'; }
+
+  function showQ(i) {
+    hideAll();
     current = i;
-    if (i < total) {
-      questionSteps[i].hidden = false;
-      back.hidden = i === 0;
-      updateBar();
-    }
+    qSteps[i].hidden = false;
+    back.hidden = i === 0;
+    setBar(Math.round((i / (TOTAL + 1)) * 100));
+  }
+  function showCapture() {
+    hideAll();
+    current = TOTAL;
+    if (captureStep) captureStep.hidden = false;
+    back.hidden = false;
+    setBar(Math.round((TOTAL / (TOTAL + 1)) * 100));
   }
 
-  // clique em opção → grava resposta e avança
-  calc.querySelectorAll('.calc__opt').forEach((opt) => {
-    opt.addEventListener('click', () => {
-      answers[opt.dataset.q] = { value: opt.dataset.val, score: Number(opt.dataset.score) };
-      if (current + 1 < total) {
-        show(current + 1);
-      } else {
-        finish();
-      }
+  back.addEventListener('click', () => {
+    if (current === TOTAL) showQ(TOTAL - 1);
+    else if (current > 0) showQ(current - 1);
+  });
+
+  qSteps.forEach((step, idx) => {
+    step.querySelectorAll('.calc__yn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        answers[idx] = Number(btn.dataset.yes);
+        if (idx + 1 < TOTAL) showQ(idx + 1);
+        else showCapture();
+      });
     });
   });
 
-  function computeScore() {
-    const keys = Object.keys(answers);
-    if (!keys.length) return 0;
-    const sum = keys.reduce((a, k) => a + (answers[k].score || 0), 0);
-    return Math.round(sum / keys.length);
+  function score() { return answers.reduce((a, v) => a + (v ? 1 : 0), 0); }
+  function band(s) {
+    if (s <= 2) return { label: 'Sob controle', color: 'var(--teal-deep)', verdict: 'Sua gestão de qualidade está bem encaminhada. A SGQ Tech ajuda a manter esse nível e a crescer sem sustos.' };
+    if (s <= 4) return { label: 'Risco moderado', color: '#0F8A7E', verdict: 'Já há pontos frágeis que viram problema na hora errada. Dá para blindar a operação rápido.' };
+    return { label: 'Risco alto', color: '#D85A37', verdict: 'Sua operação depende de papel e memória em pontos críticos. Uma fiscalização ou um recall exporiam isso. Vale agir agora.' };
   }
 
-  function band(score) {
-    if (score <= 25) return { label: 'Sob controle', color: 'var(--teal-deep)', verdict: 'Sua gestão de qualidade já está madura. A SGQ Tech ajuda a manter esse nível com menos esforço e a escalar com segurança.' };
-    if (score <= 50) return { label: 'Atenção', color: '#0F8A7E', verdict: 'Há pontos frágeis que costumam virar problema na hora errada. Dá para blindar a operação rapidamente.' };
-    if (score <= 75) return { label: 'Risco alto', color: '#E8845C', verdict: 'Sua operação ainda depende de papel e memória em pontos críticos. Uma fiscalização ou um recall exporiam isso.' };
-    return { label: 'Risco crítico', color: '#D85A37', verdict: 'A qualidade está exposta. O custo de uma autuação ou recall é muito maior que o de organizar tudo isso agora.' };
-  }
-
-  function finish() {
-    if (bar) bar.style.width = '100%';
-    back.hidden = true;
-    steps.forEach((s) => (s.hidden = true));
+  function reveal() {
+    hideAll();
+    current = TOTAL + 1;
     resultStep.hidden = false;
-    current = total;
-
-    const score = computeScore();
-    const b = band(score);
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+    back.hidden = true;
+    setBar(100);
+    const s = score();
+    const b = band(s);
     const numEl = document.getElementById('calcScore');
-    const bandEl = document.getElementById('calcBand');
-    const verdictEl = document.getElementById('calcVerdict');
-    const arc = document.getElementById('gaugeArc');
-
-    bandEl.textContent = b.label;
-    bandEl.style.color = b.color;
-    verdictEl.textContent = b.verdict;
-    if (arc) arc.style.stroke = b.color;
-
-    const ARC_LEN = 283;
-    const targetOffset = ARC_LEN - (ARC_LEN * score) / 100;
-
-    if (reduced) {
-      numEl.textContent = score;
-      if (arc) arc.style.strokeDashoffset = targetOffset;
-    } else {
-      // contador + preenchimento do medidor
-      const dur = 900;
-      const t0 = performance.now();
-      const tick = (t) => {
-        const p = Math.min(1, (t - t0) / dur);
-        const eased = 1 - Math.pow(1 - p, 3);
-        numEl.textContent = Math.round(score * eased);
-        if (arc) arc.style.strokeDashoffset = ARC_LEN - ((ARC_LEN * score) / 100) * eased;
-        if (p < 1) requestAnimationFrame(tick);
-        else numEl.textContent = score;
-      };
-      requestAnimationFrame(tick);
-    }
-
-    // expõe os dados pro submit
-    resultStep.dataset.score = score;
-    resultStep.dataset.band = b.label;
+    document.getElementById('calcBand').textContent = b.label;
+    document.getElementById('calcBand').style.color = b.color;
+    document.getElementById('calcVerdict').textContent = b.verdict;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || s === 0) { numEl.textContent = String(s); return; }
+    let n = 0;
+    numEl.textContent = '0';
+    const stepUp = () => { n++; numEl.textContent = String(n); if (n < s) setTimeout(stepUp, 170); };
+    setTimeout(stepUp, 200);
   }
 
-  // form de captura no resultado
+  // captura ANTES do resultado: grava o lead e só então revela
   const cForm = document.getElementById('calcForm');
   const cBtn = document.getElementById('calcSubmit');
   if (cForm) {
@@ -275,30 +252,28 @@ function initCalculator() {
         cForm.querySelector('#cf-email')?.focus();
         return;
       }
-
-      const score = Number(resultStep.dataset.score || computeScore());
-      // risk_answers (jsonb): respostas + score + faixa
+      const s = score();
+      const b = band(s);
       const riskAnswers = {};
-      for (const k in answers) riskAnswers[k] = answers[k].value;
-      riskAnswers._score = score;
-      riskAnswers._band = resultStep.dataset.band || band(score).label;
+      answers.forEach((v, i) => { riskAnswers['p' + (i + 1)] = v ? 'sim' : 'nao'; });
+      riskAnswers._score = s;
+      riskAnswers._band = b.label;
 
       const payload = clean({
         name: data.name,
         email: data.email,
         company: data.company,
         source: 'site_calculadora',
-        risk_score: score,
+        risk_score: s,
         risk_answers: riskAnswers,
-        message: `Calculadora de risco: ${score}/100 (${riskAnswers._band}).`,
-        // status omitido → default 'new'
+        message: `Calculadora de risco: ${s}/7 sinais (${b.label}).`,
       });
 
       setLoading(cBtn, true);
       try {
         await submitLead(payload);
-        cForm.innerHTML = '<div style="text-align:center;padding:8px 0"><div style="font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:6px">Pronto! Diagnóstico a caminho.</div><p style="color:var(--muted)">Nossa equipe vai te enviar o diagnóstico completo e como reduzir esse risco. Quer adiantar? <a href="' + WHATSAPP_URL + '" target="_blank" rel="noopener" style="color:var(--teal-deep);font-weight:600;text-decoration:underline">Fale no WhatsApp</a>.</p></div>';
-        toast('success', 'Diagnóstico solicitado!', 'Vamos te enviar o resultado completo em breve.');
+        reveal();
+        toast('success', 'Diagnóstico pronto!', 'Enviamos uma cópia e nossa equipe vai falar com você.');
       } catch (err) {
         console.error('[SGQ Tech] erro ao gravar lead (calculadora):', err);
         toast('error', 'Não foi possível enviar', 'Tente novamente ou fale no WhatsApp (84) 98850-4395.');
@@ -308,7 +283,7 @@ function initCalculator() {
     });
   }
 
-  updateBar();
+  setBar(0);
 }
 
 /* ── Boot ──────────────────────────────────────────────────────────── */

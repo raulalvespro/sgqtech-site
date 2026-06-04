@@ -30,7 +30,7 @@
   }
 
   /* ── Reveal ao rolar (base, sem dependências) ─────────────────────── */
-  var reveals = document.querySelectorAll('.reveal, .reveal-img');
+  var reveals = document.querySelectorAll('.reveal, .reveal-img, .signal');
   if (!('IntersectionObserver' in window) || prefersReduced) {
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   } else {
@@ -123,6 +123,68 @@
     }
   }
 
+  /* ── Carrossel de telas (vanilla: autoplay, setas, dots, swipe, loop) ── */
+  (function () {
+    var root = document.getElementById('systemCarousel');
+    if (!root) return;
+    var track = root.querySelector('.carousel__track');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.carousel__slide'));
+    var caps = ['Painel da qualidade', 'Indicadores de qualidade', 'Indicadores de manutenção', 'Painel do SGI', 'Programação de produção', 'Suprimentos', 'Rastreabilidade de lote'];
+    var capEl = document.getElementById('carouselCap');
+    var dotsWrap = document.getElementById('carouselDots');
+    var i = 0, timer = null, n = slides.length;
+    slides.forEach(function (_, idx) {
+      var d = document.createElement('button');
+      d.type = 'button'; d.className = 'carousel__dot'; d.setAttribute('aria-label', 'Tela ' + (idx + 1));
+      d.addEventListener('click', function () { go(idx); restart(); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = dotsWrap.querySelectorAll('.carousel__dot');
+    function go(idx) {
+      i = (idx + n) % n;
+      track.style.transform = 'translateX(' + (-i * 100) + '%)';
+      dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+      if (capEl && caps[i]) capEl.textContent = caps[i];
+    }
+    function next() { go(i + 1); }
+    function prev() { go(i - 1); }
+    root.querySelector('.carousel__arrow--next').addEventListener('click', function () { next(); restart(); });
+    root.querySelector('.carousel__arrow--prev').addEventListener('click', function () { prev(); restart(); });
+    function start() { if (prefersReduced) return; stop(); timer = setInterval(next, 4200); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    var x0 = null;
+    root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+      x0 = null; start();
+    }, { passive: true });
+    go(0);
+    if ('IntersectionObserver' in window) {
+      var io2 = new IntersectionObserver(function (es) { es.forEach(function (en) { en.isIntersecting ? start() : stop(); }); }, { threshold: 0.25 });
+      io2.observe(root);
+    } else { start(); }
+  })();
+
+  /* ── Matriz de planos: abas no mobile ── */
+  (function () {
+    var m = document.getElementById('planMatrix');
+    if (!m) return;
+    var tabs = m.querySelectorAll('.matrix__tab');
+    var panels = m.querySelectorAll('.matrix__panel');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        var p = t.getAttribute('data-plan');
+        tabs.forEach(function (x) { x.classList.toggle('is-active', x === t); });
+        panels.forEach(function (x) { x.classList.toggle('is-active', x.getAttribute('data-plan') === p); });
+      });
+    });
+  })();
+
   if (prefersReduced) return; // ── nada de realce com libs além daqui ──
 
   /* ════════════════ Realce com GSAP ════════════════ */
@@ -136,6 +198,11 @@
       if (heroShot) {
         gsap.set(heroShot, { willChange: 'transform' });
         gsap.to(heroShot, { y: -6, duration: 4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.2 });
+      }
+      var rastShot = document.getElementById('rastShot');
+      if (rastShot) {
+        gsap.set(rastShot, { willChange: 'transform' });
+        gsap.to(rastShot, { y: -7, duration: 4.5, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
       }
 
       /* Hero — parallax leve só no glow decorativo */
@@ -190,6 +257,32 @@
         };
         if (ST) ScrollTrigger.create({ trigger: diagram, start: 'top 78%', once: true, onEnter: runTrace });
         else inView(diagram, runTrace, 0.3);
+      }
+
+      /* Hero — entrada do print do dashboard (fade + scale + subida) */
+      if (heroShot) {
+        gsap.from(heroShot, { opacity: 0, scale: 0.97, y: 16, duration: 0.7, ease: 'power2.out', delay: 0.15 });
+      }
+
+      /* 7 sinais: a entrada deslizante alternada é feita pelo IntersectionObserver
+         de reveal (CSS `html.js .signal`) — mais robusto que o ScrollTrigger aqui,
+         que dependia de refresh/timing de layout e podia disparar fora da tela. */
+
+      /* Laudo — folheia: o quadro rola por dentro conforme você passa a seção (sem pin, sem CLS) */
+      var lScroll = document.getElementById('laudoScroll');
+      if (lScroll && ST && window.innerWidth > 768) {
+        var setupLaudo = function () {
+          var max = lScroll.scrollHeight - lScroll.clientHeight;
+          if (max > 20) {
+            gsap.to(lScroll, {
+              scrollTop: max, ease: 'none',
+              scrollTrigger: { trigger: '#laudos', start: 'top 60%', end: 'bottom bottom', scrub: 0.6, invalidateOnRefresh: true }
+            });
+          }
+        };
+        var li = lScroll.querySelectorAll('img'), ln = 0;
+        var lr = function () { ln++; if (ln >= li.length) { setupLaudo(); ScrollTrigger.refresh(); } };
+        li.forEach(function (im) { if (im.complete) lr(); else im.addEventListener('load', lr); });
       }
     } catch (e) { /* realce é opcional — nunca quebra a página */ }
 
